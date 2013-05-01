@@ -7,16 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-@class Task;
+
 
 @interface Category : NSObject
 
-@property (strong, nonatomic) NSString* name;
-@property (strong, nonatomic) NSHashTable* members;
-
-- (id)initWithName:(NSString*)name;
-- (Task*)obtainTask:(NSString*)task;
-- (void)addTask:(Task*)task;
-- (void)removeTask:(Task*)task;
+extern NSString* const INBOX;
+extern NSString* const NEXT;
+extern NSString* const WAITTING;
+extern NSString* const SOME_DAY;
+extern NSString* const PROJECT;
 
 @end

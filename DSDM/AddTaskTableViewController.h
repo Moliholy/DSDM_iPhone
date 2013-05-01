@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Task;
 
 @interface AddTaskTableViewController : UITableViewController
+
+@property (weak, nonatomic) Task* addedTask;
 
 @end

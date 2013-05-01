@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-#import "MasterViewController.h"
+#import "SelectTaskCategoryViewController.h"
 
 @implementation AppDelegate
 
@@ -20,8 +20,8 @@
 {
     // Override point for customization after application launch.
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
-    controller.managedObjectContext = self.managedObjectContext;
+    SelectTaskCategoryViewController *controller = (SelectTaskCategoryViewController *)navigationController.topViewController;
+    //controller.managedObjectContext = self.managedObjectContext;
     return YES;
 }
 							

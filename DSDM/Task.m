@@ -7,6 +7,7 @@
 //
 
 #import "Task.h"
+#import "Category.h"
 
 @implementation Task
 
@@ -16,7 +17,7 @@
     self = [super init];
     if (self) {
         self->_alreadyDone = NO;
-        self->_category = @"";
+        self->_category = INBOX;
         self->_date = [NSDate date];
         self->_name = @"";
         self->_note = @"";
@@ -25,12 +26,12 @@
     return self;
 }
 
--(id)initWithName:(NSString *)name date:(NSDate *)date note:(NSString *)note category:(NSString *)category priority:(NSInteger)priority
+-(id)initWithName:(NSString *)name date:(NSDate *)date note:(NSString *)note priority:(NSInteger)priority
 {
     self = [super init];
     if (self) {
         self->_alreadyDone = NO;
-        self->_category = category;
+        self->_category = INBOX;    //always by default!
         self->_date = date;
         self->_name = name;
         self->_note = note;

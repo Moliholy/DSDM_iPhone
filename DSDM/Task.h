@@ -13,11 +13,11 @@
 @property (weak, nonatomic) NSString* name;
 @property (weak, nonatomic) NSDate* date;
 @property (weak, nonatomic) NSString* note;
-@property (weak, nonatomic) NSString* category;
 @property (nonatomic) NSInteger priority;
 @property (nonatomic) BOOL alreadyDone;
 
-- (id)initWithName:(NSString*)name date:(NSDate*)date note:(NSString*)note category:(NSString*)category priority:(NSInteger)priority;
+- (id)init;
+- (id)initWithName:(NSString*)name date:(NSDate*)date note:(NSString*)note priority:(NSInteger)priority;
 
 
 @end
