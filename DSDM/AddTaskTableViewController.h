@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class Task;
 
-@interface AddTaskTableViewController : UITableViewController
+@interface AddTaskTableViewController : UITableViewController<UITextFieldDelegate>
 
 @property (weak, nonatomic) Task* addedTask;
 

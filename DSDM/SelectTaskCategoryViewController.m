@@ -22,7 +22,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -30,10 +30,10 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    _taskCategoryArrays = [[TaskDataController alloc] init];
     //IGUAL SE DEBERIA HACER LA PERSISTENCIA DE DATOS AQUI
     /* if(hayDatosAlmacenadosEnDisco) _taskCategoryArrays = [[TaskDataController alloc] initWithList];
      else */
-    _taskCategoryArrays = [[TaskDataController alloc] init];
 }
 
 - (void)viewDidLoad

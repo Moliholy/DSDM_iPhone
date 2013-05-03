@@ -19,7 +19,7 @@
             </objects>
             <point key="canvasLocation" x="-175" y="72"/>
         </scene>
-        <!--Select Task Category View Controller - Task categories-->
+        <!--Select Task Category View Controller - Home-->
         <scene sceneID="RBC-Jy-2z9">
             <objects>
                 <viewController id="VYi-gp-qVx" customClass="SelectTaskCategoryViewController" sceneMemberID="viewController">
@@ -107,16 +107,13 @@
                             <constraint firstItem="kWE-04-pKk" firstAttribute="leading" secondItem="Vdo-Pk-CRQ" secondAttribute="leading" constant="89" id="zcS-Mh-ApO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Task categories" id="q4r-ia-yDR">
+                    <navigationItem key="navigationItem" title="Home" id="q4r-ia-yDR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="al8-Ts-bBi">
                             <connections>
                                 <segue destination="PXy-BY-ZLx" kind="modal" id="4KJ-9S-N5I"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="12" kind="push" id="xxp-Hc-K7Y"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EhR-Jp-w6Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -161,7 +158,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Task selection" id="36">
-                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="rbh-RE-3Pb"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="rbh-RE-3Pb"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
@@ -360,6 +357,33 @@
             <point key="canvasLocation" x="464" y="-766"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AddTaskTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddTaskTableViewController.h"/>
+        </class>
+        <class className="DetailViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SelectTaskCategoryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelectTaskCategoryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
+            </relationships>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

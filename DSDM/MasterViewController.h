@@ -13,8 +13,7 @@
 @interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (weak, nonatomic) NSArray* activitiesArray;
+@property (weak, nonatomic) NSMutableArray* activitiesArray;
 @property (weak, nonatomic) NSString* categoryName;
 
 @end

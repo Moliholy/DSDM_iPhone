@@ -10,10 +10,10 @@
 
 @implementation Category
 
-NSString* const INBOX = @"Inbox";
-NSString* const NEXT = @"Next";
-NSString* const WAITTING = @"Waitting";
-NSString* const SOME_DAY = @"Some day";
-NSString* const PROJECT = @"Project";
+NSString* const INBOX = @"INBOX";
+NSString* const NEXT = @"NEXT";
+NSString* const WAITTING = @"WAITTING";
+NSString* const SOME_DAY = @"SOME DAY";
+NSString* const PROJECT = @"PROJECT";
 
 @end

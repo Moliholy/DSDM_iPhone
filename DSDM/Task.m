@@ -17,7 +17,6 @@
     self = [super init];
     if (self) {
         self->_alreadyDone = NO;
-        self->_category = INBOX;
         self->_date = [NSDate date];
         self->_name = @"";
         self->_note = @"";
@@ -31,7 +30,6 @@
     self = [super init];
     if (self) {
         self->_alreadyDone = NO;
-        self->_category = INBOX;    //always by default!
         self->_date = date;
         self->_name = name;
         self->_note = note;
