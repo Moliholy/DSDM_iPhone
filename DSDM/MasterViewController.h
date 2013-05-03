@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (strong, nonatomic) NSArray* activitiesArray;
+@property (weak, nonatomic) NSArray* activitiesArray;
+@property (weak, nonatomic) NSString* categoryName;
 
 @end

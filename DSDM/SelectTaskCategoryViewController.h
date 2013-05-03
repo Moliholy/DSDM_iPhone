@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class TaskDataController;
 
 @interface SelectTaskCategoryViewController : UIViewController
+
+@property (nonatomic, strong) TaskDataController* taskCategoryArrays;
+
+- (IBAction)cancel:(UIStoryboardSegue*)segue;
+- (IBAction)done:(UIStoryboardSegue*)segue;
 
 @end

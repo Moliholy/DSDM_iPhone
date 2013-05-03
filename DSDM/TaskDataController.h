@@ -18,9 +18,11 @@
 @property (nonatomic, copy) NSMutableArray* projectTaskList;
 
 - (id)init;
+- (id)initWithListInbox:(NSMutableArray*)inbox next:(NSMutableArray*)next waitting:(NSMutableArray*)waitting someDay:(NSMutableArray*)someDay project:(NSMutableArray*)project;
 - (NSMutableArray*) listByCategory:(NSString*)category;
 - (void)addTaskWithTask:(Task*)task;
 - (Task*)objectInListWithCategory:(NSString*)category atIndex:(NSInteger)index;
 - (NSInteger)countOfListWithCategory:(NSString*)category;
+- (BOOL)changeTaskCategory:(Task*)task fromCategory:(NSString*)sourceCategory toCategory:(NSString*)destinyCategory;
 
 @end
