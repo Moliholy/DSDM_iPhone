@@ -7,6 +7,7 @@
 //
 
 #import "AddTaskTableViewController.h"
+#import "Task.h"
 
 @interface AddTaskTableViewController ()
 
@@ -18,7 +19,10 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        self.addedTask = nil;
+        self.taskName.text = @"";
+        self.taskNote.text = @"";
+        self.taskPriority.value = 0.0;
     }
     return self;
 }
@@ -35,13 +39,18 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    //IMPLEMENTAR
+    [textField resignFirstResponder];
     return YES;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    //IMPLEMENTAR
+    if([[segue identifier] isEqualToString:@"ReturnInput"]){
+        if([self.taskName.text length]){
+            Task* taskToAdd = [[Task alloc] initWithName:self.taskName.text date:[NSDate date] note:self.taskNote.text priority:self.taskPriority.value];
+            self.addedTask = taskToAdd;
+        }
+    }
 }
 
 

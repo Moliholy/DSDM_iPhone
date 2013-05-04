@@ -16,4 +16,6 @@
 @property (weak, nonatomic) NSMutableArray* activitiesArray;
 @property (weak, nonatomic) NSString* categoryName;
 
+- (IBAction)remove:(UIStoryboardSegue*)segue;
+
 @end

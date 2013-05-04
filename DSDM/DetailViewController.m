@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "Task.h"
 
 @interface DetailViewController ()
 - (void)configureView;
@@ -16,12 +17,22 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
+-(void)setTask:(Task *)task
 {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
+    if(_task != task){
+        _task = task;
         
-        // Update the view.
+        //updating the view
+        [self configureView];
+    }
+}
+
+- (void)setCategoryName:(NSString *)categoryName
+{
+    if(_categoryName != categoryName){
+        _categoryName = categoryName;
+        
+        //updating the view
         [self configureView];
     }
 }
@@ -29,9 +40,19 @@
 - (void)configureView
 {
     // Update the user interface for the detail item.
-
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"timeStamp"] description];
+    static NSDateFormatter* formatter = nil;
+    if(formatter == nil){
+        formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateStyle:NSDateFormatterMediumStyle];
+    }
+    if(self.task){
+        NSString* dateFormatted = [formatter stringFromDate:(NSDate*)self.task.date];
+        self.taskCategoryLabel.text = self.categoryName;
+        self.taskDateLabel.text = dateFormatted;
+        self.taskNameLabel.text = self.task.name;
+        self.taskNoteLabel.text = self.task.note;
+        self.taskPriorityLabel.text = [NSString stringWithFormat:@"%.2f", self.task.priority];
+        self.taskAlreadyDoneLabel.text = self.task.alreadyDone ? @"Yes" : @"No";
     }
 }
 

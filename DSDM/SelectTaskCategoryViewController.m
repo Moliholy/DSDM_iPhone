@@ -11,6 +11,7 @@
 #import "MasterViewController.h"
 #import "AddTaskTableViewController.h"
 #import "Category.h"
+#import "Task.h"
 
 @interface SelectTaskCategoryViewController ()
 
@@ -18,19 +19,11 @@
 
 @implementation SelectTaskCategoryViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        
-    }
-    return self;
-}
-
 - (void)awakeFromNib
 {
     [super awakeFromNib];
     _taskCategoryArrays = [[TaskDataController alloc] init];
+    [_taskCategoryArrays.inboxTaskList addObject:[[Task alloc]initWithName:@"Task 1 Molina prueba" date:[NSDate date] note:@"Task 1 note done by molina" priority:2.5]];
     //IGUAL SE DEBERIA HACER LA PERSISTENCIA DE DATOS AQUI
     /* if(hayDatosAlmacenadosEnDisco) _taskCategoryArrays = [[TaskDataController alloc] initWithList];
      else */
@@ -70,18 +63,20 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSString* identifier = [segue identifier];
-    MasterViewController* masterViewController = [segue destinationViewController];
-    if([identifier isEqualToString:INBOX]){
-        masterViewController.activitiesArray = self.taskCategoryArrays.inboxTaskList;
-    } else if([identifier isEqualToString:NEXT]){
-        masterViewController.activitiesArray = self.taskCategoryArrays.nextTaskList;
-    }else if([identifier isEqualToString:WAITTING]){
-        masterViewController.activitiesArray = self.taskCategoryArrays.waittingTaskList;
-    }else if([identifier isEqualToString:SOME_DAY]){
-        masterViewController.activitiesArray = self.taskCategoryArrays.someDayTaskList;
-    }else if([identifier isEqualToString:PROJECT]){
-        masterViewController.activitiesArray = self.taskCategoryArrays.projectTaskList;
+    if(! [identifier isEqualToString:@"AddTask"]){
+        MasterViewController* masterViewController = [segue destinationViewController];
+        if([identifier isEqualToString:INBOX]){
+            masterViewController.activitiesArray = self.taskCategoryArrays.inboxTaskList;
+        } else if([identifier isEqualToString:NEXT]){
+            masterViewController.activitiesArray = self.taskCategoryArrays.nextTaskList;
+        }else if([identifier isEqualToString:WAITTING]){
+            masterViewController.activitiesArray = self.taskCategoryArrays.waittingTaskList;
+        }else if([identifier isEqualToString:SOME_DAY]){
+            masterViewController.activitiesArray = self.taskCategoryArrays.someDayTaskList;
+        }else if([identifier isEqualToString:PROJECT]){
+            masterViewController.activitiesArray = self.taskCategoryArrays.projectTaskList;
+        }
+        masterViewController.categoryName = identifier;
     }
-    masterViewController.categoryName = identifier;
 }
 @end

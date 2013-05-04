@@ -7,7 +7,8 @@
 //
 
 #import "MasterViewController.h"
-
+#import "DetailViewController.h"
+#import "Task.h"
 #import "DetailViewController.h"
 
 @interface MasterViewController ()
@@ -16,9 +17,14 @@
 
 @implementation MasterViewController
 
-- (void)awakeFromNib
+-(void)remove:(UIStoryboardSegue *)segue
 {
-    [super awakeFromNib];
+    if([[segue identifier] isEqualToString:@"RemoveInput"]){
+        DetailViewController* detaillViewController = [segue sourceViewController];
+        Task* taskToRemove = detaillViewController.task;
+        [self.activitiesArray removeObject:taskToRemove];
+    }
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)viewDidLoad
@@ -26,32 +32,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.title = self.categoryName;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)insertNewObject:(id)sender
-{
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
-    
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error]) {
-         // Replace this implementation with code to handle the error appropriately.
-         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
 }
 
 #pragma mark - Table View
@@ -63,14 +43,26 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    return [sectionInfo numberOfObjects];
+    if(self.activitiesArray){
+        return [self.activitiesArray count];
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    [self configureCell:cell atIndexPath:indexPath];
+    static NSString* CellIdentifier = @"TaskCell";
+    
+    static NSDateFormatter* formatter = nil;
+    if(formatter == nil){
+        formatter = [[NSDateFormatter alloc]init];
+        [formatter setDateStyle:NSDateFormatterMediumStyle];
+    }
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    Task* task = [self.activitiesArray objectAtIndex:indexPath.row];
+    [[cell textLabel] setText:task.name];
+    [[cell detailTextLabel] setText:[formatter stringFromDate:(NSDate*)task.date]];
+    
     return cell;
 }
 
@@ -78,22 +70,6 @@
 {
     // Return NO if you do not want the specified item to be editable.
     return NO;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-        
-        NSError *error = nil;
-        if (![context save:&error]) {
-             // Replace this implementation with code to handle the error appropriately.
-             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        }
-    }   
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
@@ -104,10 +80,11 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [[segue destinationViewController] setDetailItem:object];
+    if ([[segue identifier] isEqualToString:@"ShowTaskDetails"]) {
+        DetailViewController* detailViewController = [segue destinationViewController];
+        detailViewController.categoryName = self.categoryName;
+        NSUInteger index = [self.tableView indexPathForSelectedRow].row;
+        detailViewController.task = [self.activitiesArray objectAtIndex:index];
     }
 }
 

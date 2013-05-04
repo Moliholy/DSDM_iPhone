@@ -11,6 +11,9 @@
 
 @interface AddTaskTableViewController : UITableViewController<UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet UITextField *taskName;
+@property (weak, nonatomic) IBOutlet UITextField *taskNote;
+@property (weak, nonatomic) IBOutlet UISlider *taskPriority;
 @property (weak, nonatomic) Task* addedTask;
 
 @end
