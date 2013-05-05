@@ -10,9 +10,9 @@
 
 @interface Task : NSObject
 
-@property (weak, nonatomic) NSString* name;
-@property (weak, nonatomic) NSDate* date;
-@property (weak, nonatomic) NSString* note;
+@property (copy, nonatomic) NSString* name;
+@property (strong, nonatomic) NSDate* date;
+@property (copy, nonatomic) NSString* note;
 @property (nonatomic) float priority;
 @property (nonatomic) BOOL alreadyDone;
 

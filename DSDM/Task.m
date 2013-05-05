@@ -21,8 +21,9 @@
         self->_name = @"";
         self->_note = @"";
         self->_priority = 0;
+        return self;
     }
-    return self;
+    return nil;
 }
 
 -(id)initWithName:(NSString *)name date:(NSDate *)date note:(NSString *)note priority:(float)priority
@@ -30,12 +31,13 @@
     self = [super init];
     if (self) {
         self->_alreadyDone = NO;
-        self->_date = [NSDate date];
+        self->_date = date;
         self->_name = name;
         self->_note = note;
         self->_priority = priority;
+        return self;
     }
-    return self;
+    return nil;
 }
 
 

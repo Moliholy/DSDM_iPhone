@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#define MAX_PRIORITY 5;
 @class Task;
 
 @interface AddTaskTableViewController : UITableViewController<UITextFieldDelegate>
@@ -14,6 +15,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *taskName;
 @property (weak, nonatomic) IBOutlet UITextField *taskNote;
 @property (weak, nonatomic) IBOutlet UISlider *taskPriority;
-@property (weak, nonatomic) Task* addedTask;
+@property (strong, nonatomic) Task* addedTask;
 
 @end

@@ -13,8 +13,8 @@
 @interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (weak, nonatomic) NSMutableArray* activitiesArray;
-@property (weak, nonatomic) NSString* categoryName;
+@property (strong, nonatomic) NSMutableArray* activitiesArray;
+@property (strong, nonatomic) NSString* categoryName;
 
 - (IBAction)remove:(UIStoryboardSegue*)segue;
 

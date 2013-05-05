@@ -11,7 +11,7 @@
 
 @interface SelectTaskCategoryViewController : UIViewController
 
-@property (nonatomic, strong) TaskDataController* taskCategoryArrays;
+@property (nonatomic, copy) TaskDataController* taskCategoryArrays;
 
 - (IBAction)cancel:(UIStoryboardSegue*)segue;
 - (IBAction)done:(UIStoryboardSegue*)segue;

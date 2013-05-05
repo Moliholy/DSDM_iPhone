@@ -51,7 +51,7 @@
         self.taskDateLabel.text = dateFormatted;
         self.taskNameLabel.text = self.task.name;
         self.taskNoteLabel.text = self.task.note;
-        self.taskPriorityLabel.text = [NSString stringWithFormat:@"%.2f", self.task.priority];
+        self.taskPriorityLabel.text = [NSString stringWithFormat:@"%.1f /5.0", self.task.priority];
         self.taskAlreadyDoneLabel.text = self.task.alreadyDone ? @"Yes" : @"No";
     }
 }

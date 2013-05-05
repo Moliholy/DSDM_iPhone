@@ -23,12 +23,21 @@
 {
     [super awakeFromNib];
     _taskCategoryArrays = [[TaskDataController alloc] init];
-    [_taskCategoryArrays.inboxTaskList addObject:[[Task alloc]initWithName:@"Task 1 Molina prueba" date:[NSDate date] note:@"Task 1 note done by molina" priority:2.5]];
+    NSDate* today = [NSDate date];
+    Task* toAdd = [[Task alloc]initWithName:@"Task 1 Molina prueba" date:today note:@"Task 1 note done by molina aaaaaaabbbbbbbbbbccccccccccddddddd" priority:2.5];
+    [_taskCategoryArrays addTaskWithTask:toAdd];
     //IGUAL SE DEBERIA HACER LA PERSISTENCIA DE DATOS AQUI
     /* if(hayDatosAlmacenadosEnDisco) _taskCategoryArrays = [[TaskDataController alloc] initWithList];
      else */
 }
 
+/*
+- (void)setTaskCategoryArrays:(TaskDataController *)taskCategoryArrays
+{
+    if(_taskCategoryArrays != taskCategoryArrays)
+        _taskCategoryArrays = [taskCategoryArrays mutableCopy];
+}
+*/
 - (void)viewDidLoad
 {
     [super viewDidLoad];

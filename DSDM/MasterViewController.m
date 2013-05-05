@@ -23,6 +23,7 @@
         DetailViewController* detaillViewController = [segue sourceViewController];
         Task* taskToRemove = detaillViewController.task;
         [self.activitiesArray removeObject:taskToRemove];
+        [self.tableView reloadData];
     }
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
