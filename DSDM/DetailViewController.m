@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 #import "AddTaskTableViewController.h"
 #import "Task.h"
+#import "EditTaskTableViewController.h"
 
 @interface DetailViewController ()
 - (void)configureView;
@@ -69,6 +70,15 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"EditInput"]){
+        EditTaskTableViewController* editView = [segue destinationViewController];
+        editView.editedTask = self.task;
+        editView.taskCategory = self.categoryName;
+    }
 }
 
 @end

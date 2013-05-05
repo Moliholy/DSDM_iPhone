@@ -227,7 +227,7 @@
                                                         <constraint firstAttribute="width" constant="216" id="rB5-Fo-8uy"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -471,7 +471,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="APF-35-kiE" kind="push" identifier="EditInput" id="95W-q0-TFD"/>
+                                                        <segue destination="APF-35-kiE" kind="modal" identifier="EditInput" id="95W-q0-TFD"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMQ-tw-yYT">
@@ -540,12 +540,10 @@
             </objects>
             <point key="canvasLocation" x="464" y="-766"/>
         </scene>
-        <!--Add Task Table View Controller - Edit task-->
+        <!--Edit Task Table View Controller - Edit task-->
         <scene sceneID="jzg-Sg-DGs">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lm2-LA-0cB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="LNI-98-Hx9" userLabel="Exit" sceneMemberID="exit"/>
-                <tableViewController id="APF-35-kiE" customClass="AddTaskTableViewController" sceneMemberID="viewController">
+                <tableViewController id="APF-35-kiE" customClass="EditTaskTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="pEU-jj-ef1">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -565,7 +563,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3NB-lI-eLG">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3NB-lI-eLG">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="216" id="wkN-yj-ry0"/>
                                                     </constraints>
@@ -594,23 +592,21 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="arn-bZ-dC9">
-                                                    <color key="backgroundColor" red="0.97193444293478259" green="0.97193444293478259" blue="0.97193444293478259" alpha="1" colorSpace="calibratedRGB"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Glq-yH-w3u">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="213" id="OzZ-EE-YOD"/>
-                                                        <constraint firstAttribute="height" constant="37" id="aX0-v3-8QT"/>
+                                                        <constraint firstAttribute="width" constant="211" id="h6u-BM-26k"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
-                                                </textView>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="I2o-qG-YBa" firstAttribute="top" secondItem="IKO-B5-S2B" secondAttribute="top" constant="11" id="DZO-e9-Sed"/>
                                             <constraint firstItem="I2o-qG-YBa" firstAttribute="leading" secondItem="IKO-B5-S2B" secondAttribute="leading" constant="20" type="default" id="MGU-gB-ayP"/>
-                                            <constraint firstItem="arn-bZ-dC9" firstAttribute="top" secondItem="IKO-B5-S2B" secondAttribute="top" constant="7" id="Nij-BR-rNV"/>
-                                            <constraint firstAttribute="trailing" secondItem="arn-bZ-dC9" secondAttribute="trailing" constant="20" type="default" id="hxM-KH-YZw"/>
+                                            <constraint firstAttribute="trailing" secondItem="Glq-yH-w3u" secondAttribute="trailing" constant="20" type="default" id="VsJ-54-py2"/>
+                                            <constraint firstItem="Glq-yH-w3u" firstAttribute="centerY" secondItem="IKO-B5-S2B" secondAttribute="centerY" type="default" id="aCE-j4-7Fx"/>
+                                            <constraint firstItem="Glq-yH-w3u" firstAttribute="top" secondItem="I2o-qG-YBa" secondAttribute="top" type="default" id="xsN-VN-HmN"/>
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="KLl-Jj-JL7">
@@ -700,10 +696,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="taskName" destination="3NB-lI-eLG" id="hen-pC-Fkh"/>
-                        <outlet property="taskPriority" destination="Pbv-st-mbL" id="EJ2-Uc-Xhf"/>
+                        <outlet property="taskAlreadyDone" destination="ACo-Tz-AyX" id="O8O-aO-MO6"/>
+                        <outlet property="taskCategorySelector" destination="mMC-AX-nqR" id="Cvv-xk-Ptu"/>
+                        <outlet property="taskName" destination="3NB-lI-eLG" id="QKI-1i-zVq"/>
+                        <outlet property="taskNote" destination="Glq-yH-w3u" id="UXs-td-ZuF"/>
+                        <outlet property="taskPriority" destination="Pbv-st-mbL" id="SJO-fj-G6V"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lm2-LA-0cB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="LNI-98-Hx9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="849" y="854"/>
         </scene>
@@ -726,46 +727,6 @@
             <point key="canvasLocation" x="323" y="854"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="AddTaskTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddTaskTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="taskName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="taskNote" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="taskPriority" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="DetailViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="taskAlreadyDoneLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="taskCategoryLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="taskDateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="taskNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="taskNoteLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="taskPriorityLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="remove:" candidateClass="UIStoryboardSegue"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SelectTaskCategoryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelectTaskCategoryViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
-            </relationships>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -773,6 +734,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="SGZ-tY-nUp"/>
-        <segue reference="95W-q0-TFD"/>
+        <segue reference="qEX-Ei-nkP"/>
     </inferredMetricsTieBreakers>
 </document>

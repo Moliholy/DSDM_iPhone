@@ -30,6 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.taskName.delegate = self;
+    self.taskNote.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
