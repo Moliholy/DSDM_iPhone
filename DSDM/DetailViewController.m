@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "AddTaskTableViewController.h"
 #import "Task.h"
 
 @interface DetailViewController ()
@@ -51,7 +52,8 @@
         self.taskDateLabel.text = dateFormatted;
         self.taskNameLabel.text = self.task.name;
         self.taskNoteLabel.text = self.task.note;
-        self.taskPriorityLabel.text = [NSString stringWithFormat:@"%.1f /5.0", self.task.priority];
+        float maxPriority = MAX_PRIORITY;
+        self.taskPriorityLabel.text = [NSString stringWithFormat:@"%.1f / %.1f", self.task.priority, maxPriority];
         self.taskAlreadyDoneLabel.text = self.task.alreadyDone ? @"Yes" : @"No";
     }
 }

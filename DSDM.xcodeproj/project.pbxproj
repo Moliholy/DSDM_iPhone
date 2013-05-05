@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350F46B01736A8AF00B4CF9D /* EditTaskTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 350F46AF1736A8AF00B4CF9D /* EditTaskTableViewController.m */; };
 		3598583C17316155000F0B4B /* SelectTaskCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3598583B17316154000F0B4B /* SelectTaskCategoryViewController.m */; };
 		3598583F173169A4000F0B4B /* TaskDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3598583E173169A3000F0B4B /* TaskDataController.m */; };
 		35A715CA173008B800B27C0B /* AddTaskTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A715C9173008B800B27C0B /* AddTaskTableViewController.m */; };
@@ -29,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		350F46AE1736A8AE00B4CF9D /* EditTaskTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditTaskTableViewController.h; path = ../EditTaskTableViewController.h; sourceTree = "<group>"; };
+		350F46AF1736A8AF00B4CF9D /* EditTaskTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditTaskTableViewController.m; path = ../EditTaskTableViewController.m; sourceTree = "<group>"; };
 		3598583A17316154000F0B4B /* SelectTaskCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTaskCategoryViewController.h; sourceTree = "<group>"; };
 		3598583B17316154000F0B4B /* SelectTaskCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTaskCategoryViewController.m; sourceTree = "<group>"; };
 		3598583D173169A3000F0B4B /* TaskDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDataController.h; sourceTree = "<group>"; };
@@ -111,6 +114,8 @@
 				35B58B3A172A5E6C0051FFD6 /* AppDelegate.m */,
 				35B58B42172A5E6C0051FFD6 /* MainStoryboard.storyboard */,
 				3598583A17316154000F0B4B /* SelectTaskCategoryViewController.h */,
+				350F46AE1736A8AE00B4CF9D /* EditTaskTableViewController.h */,
+				350F46AF1736A8AF00B4CF9D /* EditTaskTableViewController.m */,
 				3598583B17316154000F0B4B /* SelectTaskCategoryViewController.m */,
 				35A715C8173008B700B27C0B /* AddTaskTableViewController.h */,
 				35A715C9173008B800B27C0B /* AddTaskTableViewController.m */,
@@ -220,6 +225,7 @@
 				35A715CA173008B800B27C0B /* AddTaskTableViewController.m in Sources */,
 				3598583C17316155000F0B4B /* SelectTaskCategoryViewController.m in Sources */,
 				3598583F173169A4000F0B4B /* TaskDataController.m in Sources */,
+				350F46B01736A8AF00B4CF9D /* EditTaskTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
