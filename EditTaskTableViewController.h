@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class Task;
 
-@interface EditTaskTableViewController : UITableViewController<UITextFieldDelegate, UIPickerViewDelegate>
+@interface EditTaskTableViewController : UITableViewController<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
 
 @property (strong, nonatomic) Task* editedTask;

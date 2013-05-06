@@ -50,7 +50,7 @@
     if([[segue identifier] isEqualToString:@"ReturnInput"]){
         if([self.taskName.text length]){
             float priority = self.taskPriority.value * MAX_PRIORITY;
-            Task* taskToAdd = [[Task alloc] initWithName:self.taskName.text date:[NSDate date] note:self.taskNote.text priority:priority];
+            Task* taskToAdd = [[Task alloc] initWithName:self.taskName.text date:[NSDate date] note:self.taskNote.text priority:priority done:NO];
             self.addedTask = taskToAdd;
         }
     }
