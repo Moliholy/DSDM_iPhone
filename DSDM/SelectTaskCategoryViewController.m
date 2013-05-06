@@ -12,6 +12,7 @@
 #import "AddTaskTableViewController.h"
 #import "Category.h"
 #import "Task.h"
+#import "EditTaskTableViewController.h"
 
 @interface SelectTaskCategoryViewController ()
 
@@ -24,7 +25,7 @@
     [super awakeFromNib];
     _taskCategoryArrays = [[TaskDataController alloc] init];
     NSDate* today = [NSDate date];
-    Task* toAdd = [[Task alloc]initWithName:@"Task 1 Molina prueba" date:today note:@"Task 1 note done by molina aaaaaaabbbbbbbbbbccccccccccddddddd" priority:2.5];
+    Task* toAdd = [[Task alloc]initWithName:@"Task 1 Molina prueba" date:today note:@"Task 1 note done by molina aaaaaaabbbbbbbbbbccccccccccddddddd" priority:2.5 done:NO];
     [_taskCategoryArrays addTaskWithTask:toAdd];
     //IGUAL SE DEBERIA HACER LA PERSISTENCIA DE DATOS AQUI
     /* if(hayDatosAlmacenadosEnDisco) _taskCategoryArrays = [[TaskDataController alloc] initWithList];
@@ -66,6 +67,39 @@
             //task added to its corresponding array. There's nothing more to do here
         }
         [self dismissViewControllerAnimated:YES completion:NULL];
+    }else if([[segue identifier] isEqualToString:@"EditFinished"]){
+        //TODO hay que implementar esto!!!
+        EditTaskTableViewController* editView = [segue sourceViewController];
+        NSString* originalCategory = editView.taskCategory;
+        NSString* finalCategory = nil;
+        NSInteger index = [editView.taskCategorySelector selectedRowInComponent:0];
+        switch (index) {
+            case 0:
+                finalCategory = INBOX;
+                break;
+            case 1:
+                finalCategory = NEXT;
+                break;
+            case 2:
+                finalCategory = WAITTING;
+                break;
+            case 3:
+                finalCategory = SOME_DAY;
+                break;
+            case 4:
+                finalCategory = PROJECT;
+                break;
+            default:
+                finalCategory = INBOX;
+        }
+        float priority = editView.taskPriority.value * MAX_PRIORITY;
+        Task* newTask = [[Task alloc] initWithName:editView.taskName.text date:editView.editedTask.date note:editView.taskNote.text priority:priority done:editView.taskAlreadyDone.on];
+        
+        //we have to remove the original task to add a new (modified) one
+        [self.taskCategoryArrays removeTask:editView.editedTask atCategory:originalCategory];
+        
+        //now adding a new one
+        [self.taskCategoryArrays addTaskWithTask:newTask withCategory:finalCategory];
     }
 }
 

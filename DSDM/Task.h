@@ -17,7 +17,7 @@
 @property (nonatomic) BOOL alreadyDone;
 
 - (id)init;
-- (id)initWithName:(NSString*)name date:(NSDate*)date note:(NSString*)note priority:(float)priority;
+- (id)initWithName:(NSString*)name date:(NSDate*)date note:(NSString*)note priority:(float)priority done:(BOOL)done;
 
 
 @end

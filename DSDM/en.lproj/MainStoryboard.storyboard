@@ -471,7 +471,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="APF-35-kiE" kind="modal" identifier="EditInput" id="95W-q0-TFD"/>
+                                                        <segue destination="APF-35-kiE" kind="push" identifier="EditInput" id="95W-q0-TFD"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMQ-tw-yYT">
@@ -691,7 +691,7 @@
                     <navigationItem key="navigationItem" title="Edit task" id="Nh4-QO-VBJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="sxN-IY-qnK">
                             <connections>
-                                <segue destination="LNI-98-Hx9" kind="unwind" identifier="ReturnInput" unwindAction="done:" id="g2T-Qb-wRX"/>
+                                <segue destination="LNI-98-Hx9" kind="unwind" identifier="EditFinished" unwindAction="done:" id="5J1-ah-RhM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -708,25 +708,57 @@
             </objects>
             <point key="canvasLocation" x="849" y="854"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="5AU-lY-Smf">
-            <objects>
-                <navigationController id="zGL-85-c4I" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yzw-xp-3Pc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="APF-35-kiE" kind="relationship" relationship="rootViewController" id="qEX-Ei-nkP"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jta-XX-U2q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="323" y="854"/>
-        </scene>
     </scenes>
+    <classes>
+        <class className="AddTaskTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddTaskTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="taskName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="taskNote" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="taskPriority" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="DetailViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="taskAlreadyDoneLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="taskCategoryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="taskDateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="taskNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="taskNoteLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="taskPriorityLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="EditTaskTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditTaskTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="taskAlreadyDone" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="taskCategorySelector" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="taskName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="taskNote" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="taskPriority" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="MasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="remove:" candidateClass="UIStoryboardSegue"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SelectTaskCategoryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelectTaskCategoryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
+            </relationships>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -734,6 +766,5 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="SGZ-tY-nUp"/>
-        <segue reference="qEX-Ei-nkP"/>
     </inferredMetricsTieBreakers>
 </document>

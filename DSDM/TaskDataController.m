@@ -44,6 +44,12 @@
     [_inboxTaskList addObject:task];
 }
 
+- (void)addTaskWithTask:(Task *)task withCategory:(NSString *)category
+{
+    NSMutableArray* array = [self listByCategory:category];
+    [array addObject:task];
+}
+
 - (NSMutableArray *)listByCategory:(NSString *)category
 {
     if([category isEqualToString:INBOX])
@@ -87,6 +93,12 @@
         return TRUE;
     }
     return FALSE;
+}
+
+- (void)removeTask:(Task *)task atCategory:(NSString*)category
+{
+    NSMutableArray* array = [self listByCategory:category];
+    [array removeObject:task];
 }
 
 @end

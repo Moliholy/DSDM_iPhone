@@ -26,11 +26,11 @@
     return nil;
 }
 
--(id)initWithName:(NSString *)name date:(NSDate *)date note:(NSString *)note priority:(float)priority
+-(id)initWithName:(NSString *)name date:(NSDate *)date note:(NSString *)note priority:(float)priority done:(BOOL)done
 {
     self = [super init];
     if (self) {
-        self->_alreadyDone = NO;
+        self->_alreadyDone = done;
         self->_date = date;
         self->_name = name;
         self->_note = note;
