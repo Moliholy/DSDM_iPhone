@@ -163,7 +163,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Task selection" id="36">
-                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="rbh-RE-3Pb"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="rbh-RE-3Pb">
+                            <connections>
+                                <action selector="organizeList:" destination="12" id="MhD-7k-BvB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
@@ -742,6 +746,7 @@
         <class className="MasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
             <relationships>
+                <relationship kind="action" name="organizeList:"/>
                 <relationship kind="action" name="remove:" candidateClass="UIStoryboardSegue"/>
             </relationships>
         </class>

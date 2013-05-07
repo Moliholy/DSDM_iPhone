@@ -35,6 +35,51 @@
     self.navigationItem.title = self.categoryName;
 }
 
+- (void)organizeList:(id)sender
+{
+    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Sort by..." message:@"" delegate:self cancelButtonTitle:@"Cancel"
+        otherButtonTitles:@"Name",@"Date", @"Already done", @"Priority", nil];
+    [alert show];
+
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    //let's sort the array
+    switch (buttonIndex) {
+        case 1:
+            //by name
+            [self.activitiesArray sortUsingComparator:^NSComparisonResult(Task* task1, Task* task2) {
+                return [task1.name compare:task2.name options:NSCaseInsensitiveSearch];
+            }];
+            break;
+        case 2:
+            //by date
+            [self.activitiesArray sortUsingComparator:^NSComparisonResult(Task* task1, Task* task2) {
+                return [task1.date compare:task2.date];
+            }];
+            break;
+        case 3:
+            //already done
+            [self.activitiesArray sortUsingComparator:^NSComparisonResult(Task* task1, Task* task2) {
+                if(task1.alreadyDone == task2.alreadyDone)
+                    //if they're both done or undone it will be sorted by name
+                    return [task1.name compare:task2.name options:NSCaseInsensitiveSearch];
+                return task1.alreadyDone ? NSOrderedAscending : NSOrderedDescending;
+            }];
+            break;
+        case 4:
+            // by priority
+            [self.activitiesArray sortUsingComparator:^NSComparisonResult(Task* task1, Task* task2) {
+                if (task1.priority == task2.priority)
+                    return NSOrderedSame;
+                return task1.priority < task2.priority ? NSOrderedDescending : NSOrderedAscending;
+            }];
+            break;
+    }
+    [self.tableView reloadData];
+}
+
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
