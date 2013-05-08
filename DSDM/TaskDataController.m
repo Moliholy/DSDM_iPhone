@@ -9,8 +9,57 @@
 #import "TaskDataController.h"
 #import "Category.h"
 #import "Task.h"
+#import "AppDelegate.h"
+#import "TaskModel.h"
 
 @implementation TaskDataController
+- (BOOL)saveTaskModelUsingCoreData:(Task*)task withCategory:(NSString*) category{
+    //storing data using Core Data
+    AppDelegate *appDelegate = [[UIApplication sharedApplication]
+                                delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    TaskModel* taskModel = [NSEntityDescription insertNewObjectForEntityForName:@"TaskModel" inManagedObjectContext:context];
+    [taskModel setValue:task.name forKey:@"name"];
+    [taskModel setValue:task.note forKey:@"note"];
+    [taskModel setValue:[NSNumber numberWithBool:task.alreadyDone] forKey:@"alreadyDone"];
+    [taskModel setValue:task.date forKey:@"date"];
+    [taskModel setValue:category forKey:@"category"];
+    [taskModel setValue:[NSNumber numberWithFloat:task.priority] forKey:@"priority"];
+    
+    //saving modifications
+    NSError* error = nil;
+    [context save:&error];
+    
+    return error ? NO : YES;
+}
+
+- (void)addTaskWithTaskModel:(TaskModel *)taskModel
+{
+    Task* taskToBeAdded = [[Task alloc] initWithName:taskModel.name date:taskModel.date note:taskModel.note priority:[taskModel.priority floatValue] done:(BOOL)taskModel.alreadyDone];
+    NSString* category = taskModel.category;
+    NSMutableArray* array = [self listByCategory:category];
+    [array addObject:taskToBeAdded];
+}
+
+- (BOOL)loadDataFromCoreData
+{
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription* taskModelDescription = [NSEntityDescription entityForName:@"TaskModel" inManagedObjectContext:context];
+    [request setEntity:taskModelDescription];
+    if(taskModelDescription){
+        NSError *error;
+        NSArray *taskModelArray = [context executeFetchRequest:request error:&error];
+        if(!error){
+            for (TaskModel* taskModel in taskModelArray)
+                [self addTaskWithTaskModel:taskModel];
+            return YES;
+        }
+    }
+    return NO;
+}
+
 
 - (id)init
 {
@@ -41,13 +90,18 @@
 
 -(void)addTaskWithTask:(Task *)task
 {
-    [_inboxTaskList addObject:task];
+    BOOL dataStored = [self saveTaskModelUsingCoreData:task withCategory:INBOX];
+    if(dataStored)
+        [_inboxTaskList addObject:task];
 }
 
 - (void)addTaskWithTask:(Task *)task withCategory:(NSString *)category
 {
-    NSMutableArray* array = [self listByCategory:category];
-    [array addObject:task];
+    BOOL correctlyStored = [self saveTaskModelUsingCoreData:task withCategory:category];
+    if(correctlyStored){
+        NSMutableArray* array = [self listByCategory:category];
+        [array addObject:task];
+    }
 }
 
 - (NSMutableArray *)listByCategory:(NSString *)category
@@ -97,8 +151,32 @@
 
 - (void)removeTask:(Task *)task atCategory:(NSString*)category
 {
-    NSMutableArray* array = [self listByCategory:category];
-    [array removeObject:task];
+    //first core data
+    AppDelegate *appDelegate = [[UIApplication sharedApplication]
+                                delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:@"TaskModel" inManagedObjectContext:context];
+    NSFetchRequest* request = [[NSFetchRequest alloc]init];
+    request.entity = entityDescription;
+    NSError* error;
+    NSArray* array = [context executeFetchRequest:request error:&error];
+    if([array count]){
+        bool finish = false;
+        for (int i=0; i<[array count] && !finish; i++) {
+            TaskModel* taskModel = [array objectAtIndex:i];
+            NSString* name = taskModel.name;
+            if([name isEqualToString:task.name]){
+                [context deleteObject:taskModel];
+                NSError* error;
+                [context save:&error];
+                finish = true;
+            }
+        }
+    }
+    
+    //and later the array
+    NSMutableArray* myArray = [self listByCategory:category];
+    [myArray removeObject:task];
 }
 
 @end

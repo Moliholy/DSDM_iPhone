@@ -9,8 +9,8 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "Task.h"
-#import "DetailViewController.h"
-
+#import "SelectTaskCategoryViewController.h"
+#import "TaskDataController.h"
 @interface MasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
@@ -22,7 +22,13 @@
     if([[segue identifier] isEqualToString:@"RemoveInput"]){
         DetailViewController* detaillViewController = [segue sourceViewController];
         Task* taskToRemove = detaillViewController.task;
-        [self.activitiesArray removeObject:taskToRemove];
+        MasterViewController* masterView = [segue destinationViewController];
+        SelectTaskCategoryViewController* selectView = [self.navigationController.viewControllers objectAtIndex:0];
+        
+        //as always, core data first
+        [selectView.taskCategoryArrays removeTask:taskToRemove atCategory:masterView.categoryName];
+        
+        //later the rest
         [self.tableView reloadData];
     }
     [self dismissViewControllerAnimated:YES completion:NULL];
@@ -84,11 +90,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    //there's only one section: tasks in this category
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    //return the number of elements in the array or 0 if there's no array (it should not happen)
     if(self.activitiesArray){
         return [self.activitiesArray count];
     }
@@ -191,15 +199,6 @@
     [self.tableView endUpdates];
 }
 
-/*
-// Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
- 
- - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    // In the simplest, most efficient, case, reload the table view.
-    [self.tableView reloadData];
-}
- */
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
