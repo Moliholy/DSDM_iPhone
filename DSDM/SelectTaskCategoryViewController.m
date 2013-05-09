@@ -25,7 +25,7 @@
 -(void)refreshNotificationText
 {
     // Actualizar el texto sobre las tareas sin asignar
-    if ([self.taskCategoryArrays countOfListWithCategory:@"INBOX"] == 0) {
+    if ([self.taskCategoryArrays countOfListWithCategory:@"Inbox"] == 0) {
         self.notificationText.text = @"You have assigned all your tasks";
     } else {
         //self.notificationText.text = [[NSString alloc]initWithFormat:@"You have unassigned tasks"];
@@ -124,9 +124,9 @@
             masterViewController.activitiesArray = self.taskCategoryArrays.inboxTaskList;
         } else if([identifier isEqualToString:NEXT]){
             masterViewController.activitiesArray = self.taskCategoryArrays.nextTaskList;
-        }else if([identifier isEqualToString:WAITTING]){
+        }else if([identifier isEqualToString:WAITING]){
             masterViewController.activitiesArray = self.taskCategoryArrays.waittingTaskList;
-        }else if([identifier isEqualToString:SOME_DAY]){
+        }else if([identifier isEqualToString:SOMEDAY]){
             masterViewController.activitiesArray = self.taskCategoryArrays.someDayTaskList;
         }else if([identifier isEqualToString:PROJECT]){
             masterViewController.activitiesArray = self.taskCategoryArrays.projectTaskList;

@@ -113,9 +113,9 @@
         return _inboxTaskList;
     else if ([category isEqualToString: NEXT])
         return _nextTaskList;
-    else if([category isEqualToString: WAITTING])
+    else if([category isEqualToString: WAITING])
         return _waittingTaskList;
-    else if([category isEqualToString: SOME_DAY])
+    else if([category isEqualToString: SOMEDAY])
         return _someDayTaskList;
     else if([category isEqualToString: PROJECT])
         return _projectTaskList;
