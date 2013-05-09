@@ -103,7 +103,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.41960784313725491" green="0.69411764705882351" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.41960784309999999" green="0.69411764710000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="kWE-04-pKk" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0QC-p1-Vup"/>
                             <constraint firstItem="wID-bn-aR7" firstAttribute="top" secondItem="s1o-6U-gLo" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="5uS-al-GNT"/>
@@ -141,6 +141,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <connections>
+                        <outlet property="notificationText" destination="b0p-2f-jhe" id="967-zM-MYo"/>
                         <segue destination="12" kind="push" identifier="ALL" id="65R-Ae-DJQ"/>
                         <segue destination="12" kind="push" identifier="TRASH" id="Hav-r7-Xiu"/>
                         <segue destination="12" kind="push" identifier="DONE" id="4W5-32-rna"/>
@@ -148,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EhR-Jp-w6Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="304" y="72"/>
+            <point key="canvasLocation" x="259" y="72"/>
         </scene>
         <!--Master View Controller - Master-->
         <scene sceneID="18">
@@ -203,7 +204,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="781" y="66"/>
+            <point key="canvasLocation" x="729" y="72"/>
         </scene>
         <!--Add Task Table View Controller - Add task-->
         <scene sceneID="Nbb-1g-2Cw">
@@ -340,6 +341,44 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="XHh-M7-UPh">
+                            <rect key="frame" x="0.0" y="287" width="320" height="95"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G46-bc-XhD">
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="Mark as Completed">
+                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMQ-tw-yYT">
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="Send to Trash">
+                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <segue destination="RNf-EJ-y88" kind="unwind" identifier="RemoveInput" unwindAction="remove:" id="k3L-B7-spn"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="G46-bc-XhD" firstAttribute="leading" secondItem="XHh-M7-UPh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="310-RT-3Vm"/>
+                                <constraint firstItem="qMQ-tw-yYT" firstAttribute="leading" secondItem="XHh-M7-UPh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="YNS-g7-5iG"/>
+                                <constraint firstItem="qMQ-tw-yYT" firstAttribute="top" secondItem="G46-bc-XhD" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="fjC-gA-O4B"/>
+                                <constraint firstItem="G46-bc-XhD" firstAttribute="top" secondItem="XHh-M7-UPh" secondAttribute="top" type="default" id="g1j-No-Zji"/>
+                                <constraint firstAttribute="trailing" secondItem="qMQ-tw-yYT" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="gbF-7R-jJm"/>
+                                <constraint firstAttribute="trailing" secondItem="G46-bc-XhD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="oaD-bb-JP5"/>
+                            </constraints>
+                        </view>
                         <sections>
                             <tableViewSection id="kTx-Sl-Jt1">
                                 <cells>
@@ -440,7 +479,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="TTh-PC-QB5" detailTextLabel="hkX-aE-I3f" rowHeight="47" style="IBUITableViewCellStyleValue2" id="ibu-Ph-hLa">
-                                        <rect key="frame" x="0.0" y="229" width="320" height="47"/>
+                                        <rect key="frame" x="0.0" y="229" width="320" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="46"/>
@@ -463,48 +502,6 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="122" id="JYg-MU-xjj">
-                                        <rect key="frame" x="0.0" y="276" width="320" height="123"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="121"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G46-bc-XhD">
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="Mark as Completed">
-                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMQ-tw-yYT">
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="Sent to Trash">
-                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <segue destination="RNf-EJ-y88" kind="unwind" identifier="RemoveInput" unwindAction="remove:" id="k3L-B7-spn"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="G46-bc-XhD" secondAttribute="trailing" constant="20" type="default" id="2fr-Vj-pOI"/>
-                                            <constraint firstItem="qMQ-tw-yYT" firstAttribute="leading" secondItem="JYg-MU-xjj" secondAttribute="leading" constant="20" type="default" id="AYs-0B-dZk"/>
-                                            <constraint firstItem="G46-bc-XhD" firstAttribute="top" secondItem="JYg-MU-xjj" secondAttribute="top" constant="7" id="E6r-bN-wzV"/>
-                                            <constraint firstItem="G46-bc-XhD" firstAttribute="leading" secondItem="JYg-MU-xjj" secondAttribute="leading" constant="20" type="default" id="Qps-Lk-u6s"/>
-                                            <constraint firstItem="qMQ-tw-yYT" firstAttribute="top" secondItem="G46-bc-XhD" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dvf-op-8iQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="qMQ-tw-yYT" secondAttribute="trailing" constant="20" type="default" id="nla-UW-KO1"/>
-                                        </constraints>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -532,7 +529,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V44-QT-vXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="RNf-EJ-y88" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1204" y="72"/>
+            <point key="canvasLocation" x="1158" y="72"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YFc-tr-5Mu">
@@ -635,7 +632,7 @@
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Pbv-st-mbL">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="209" id="ogO-YN-7pS"/>
+                                                        <constraint firstAttribute="width" constant="189" id="lsR-WB-WBX"/>
                                                     </constraints>
                                                 </slider>
                                             </subviews>
@@ -750,7 +747,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lm2-LA-0cB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="LNI-98-Hx9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1635" y="72"/>
+            <point key="canvasLocation" x="1580" y="72"/>
         </scene>
     </scenes>
     <classes>
@@ -775,7 +772,7 @@
         <class className="EditTaskTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EditTaskTableViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="taskCategorySelector" candidateClass="UITableViewSection"/>
+                <relationship kind="outlet" name="table" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="taskName" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="taskNote" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="taskPriority" candidateClass="UISlider"/>
@@ -797,6 +794,7 @@
                 <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="showExtraOptions:"/>
+                <relationship kind="outlet" name="notificationText" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="UIStoryboardSegue" superclassName="NSObject">

@@ -12,6 +12,7 @@
 @interface SelectTaskCategoryViewController : UIViewController<UIAlertViewDelegate>
 
 @property (nonatomic, strong) TaskDataController* taskCategoryArrays;
+@property (weak, nonatomic) IBOutlet UILabel *notificationText;
 
 - (IBAction)cancel:(UIStoryboardSegue*)segue;
 - (IBAction)done:(UIStoryboardSegue*)segue;

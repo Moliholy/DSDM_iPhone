@@ -16,9 +16,22 @@
 
 @interface SelectTaskCategoryViewController ()
 
+-(void)refreshNotificationText;
+
 @end
 
 @implementation SelectTaskCategoryViewController
+
+-(void)refreshNotificationText
+{
+    // Actualizar el texto sobre las tareas sin asignar
+    if ([self.taskCategoryArrays countOfListWithCategory:@"INBOX"] == 0) {
+        self.notificationText.text = @"You have assigned all your tasks";
+    } else {
+        //self.notificationText.text = [[NSString alloc]initWithFormat:@"You have unassigned tasks"];
+        self.notificationText.text = @"You have unassigned tasks";
+    }
+}
 
 - (void)awakeFromNib
 {
@@ -27,12 +40,15 @@
     
     //using data core HERE
     [self.taskCategoryArrays loadDataFromCoreData];
+    
+    [self refreshNotificationText];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self refreshNotificationText];
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,6 +72,8 @@
 
 - (void)done:(UIStoryboardSegue *)segue
 {
+    [self refreshNotificationText];
+    
     if([[segue identifier] isEqualToString:@"ReturnInput"]){
         AddTaskTableViewController* addController = [segue sourceViewController];
         if(addController.addedTask){
