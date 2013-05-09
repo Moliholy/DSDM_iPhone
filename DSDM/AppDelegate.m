@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-#import "MasterViewController.h"
+#import "SelectTaskCategoryViewController.h"
 
 @implementation AppDelegate
 
@@ -19,9 +19,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
-    controller.managedObjectContext = self.managedObjectContext;
+    //UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    //SelectTaskCategoryViewController *controller = (SelectTaskCategoryViewController *)navigationController.topViewController;
+    //controller.managedObjectContext = self.managedObjectContext;
     return YES;
 }
 							
@@ -92,7 +92,8 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"DSDM" withExtension:@"momd"];
+    NSBundle* mainBundle = [NSBundle mainBundle];
+    NSURL *modelURL = [mainBundle URLForResource:@"Task" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
@@ -105,7 +106,7 @@
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"DSDM.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Task.sqlite"];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];

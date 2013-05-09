@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350F46B01736A8AF00B4CF9D /* EditTaskTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 350F46AF1736A8AF00B4CF9D /* EditTaskTableViewController.m */; };
+		35440C2A1739A87100C72A02 /* TaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35440C291739A87100C72A02 /* TaskModel.m */; };
+		35440C2D1739C9BE00C72A02 /* Task.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35440C2B1739C9BE00C72A02 /* Task.xcdatamodeld */; };
+		3598583C17316155000F0B4B /* SelectTaskCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3598583B17316154000F0B4B /* SelectTaskCategoryViewController.m */; };
+		3598583F173169A4000F0B4B /* TaskDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3598583E173169A3000F0B4B /* TaskDataController.m */; };
+		35A715CA173008B800B27C0B /* AddTaskTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A715C9173008B800B27C0B /* AddTaskTableViewController.m */; };
+		35B31DE4172FDC6F00DC2C93 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B31DE3172FDC6F00DC2C93 /* Task.m */; };
+		35B31DE7172FE18F00DC2C93 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B31DE6172FE18F00DC2C93 /* Category.m */; };
 		35B58B29172A5E6B0051FFD6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B58B28172A5E6B0051FFD6 /* UIKit.framework */; };
 		35B58B2B172A5E6B0051FFD6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B58B2A172A5E6B0051FFD6 /* Foundation.framework */; };
 		35B58B2D172A5E6B0051FFD6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B58B2C172A5E6B0051FFD6 /* CoreGraphics.framework */; };
@@ -18,12 +26,26 @@
 		35B58B3F172A5E6C0051FFD6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35B58B3E172A5E6C0051FFD6 /* Default@2x.png */; };
 		35B58B41172A5E6C0051FFD6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35B58B40172A5E6C0051FFD6 /* Default-568h@2x.png */; };
 		35B58B44172A5E6C0051FFD6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35B58B42172A5E6C0051FFD6 /* MainStoryboard.storyboard */; };
-		35B58B47172A5E6C0051FFD6 /* DSDM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35B58B45172A5E6C0051FFD6 /* DSDM.xcdatamodeld */; };
 		35B58B4A172A5E6C0051FFD6 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B58B49172A5E6C0051FFD6 /* MasterViewController.m */; };
 		35B58B4D172A5E6C0051FFD6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B58B4C172A5E6C0051FFD6 /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		350F46AE1736A8AE00B4CF9D /* EditTaskTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditTaskTableViewController.h; path = ../EditTaskTableViewController.h; sourceTree = "<group>"; };
+		350F46AF1736A8AF00B4CF9D /* EditTaskTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditTaskTableViewController.m; path = ../EditTaskTableViewController.m; sourceTree = "<group>"; };
+		35440C281739A87100C72A02 /* TaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskModel.h; sourceTree = "<group>"; };
+		35440C291739A87100C72A02 /* TaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskModel.m; sourceTree = "<group>"; };
+		35440C2C1739C9BE00C72A02 /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
+		3598583A17316154000F0B4B /* SelectTaskCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTaskCategoryViewController.h; sourceTree = "<group>"; };
+		3598583B17316154000F0B4B /* SelectTaskCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTaskCategoryViewController.m; sourceTree = "<group>"; };
+		3598583D173169A3000F0B4B /* TaskDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDataController.h; sourceTree = "<group>"; };
+		3598583E173169A3000F0B4B /* TaskDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskDataController.m; sourceTree = "<group>"; };
+		35A715C8173008B700B27C0B /* AddTaskTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskTableViewController.h; sourceTree = "<group>"; };
+		35A715C9173008B800B27C0B /* AddTaskTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskTableViewController.m; sourceTree = "<group>"; };
+		35B31DE2172FDC6F00DC2C93 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		35B31DE3172FDC6F00DC2C93 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		35B31DE5172FE18F00DC2C93 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
+		35B31DE6172FE18F00DC2C93 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
 		35B58B25172A5E6B0051FFD6 /* DSDM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSDM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35B58B28172A5E6B0051FFD6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		35B58B2A172A5E6B0051FFD6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -39,7 +61,6 @@
 		35B58B3E172A5E6C0051FFD6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		35B58B40172A5E6C0051FFD6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		35B58B43172A5E6C0051FFD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		35B58B46172A5E6C0051FFD6 /* DSDM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DSDM.xcdatamodel; sourceTree = "<group>"; };
 		35B58B48172A5E6C0051FFD6 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		35B58B49172A5E6C0051FFD6 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		35B58B4B172A5E6C0051FFD6 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -95,11 +116,23 @@
 				35B58B39172A5E6C0051FFD6 /* AppDelegate.h */,
 				35B58B3A172A5E6C0051FFD6 /* AppDelegate.m */,
 				35B58B42172A5E6C0051FFD6 /* MainStoryboard.storyboard */,
+				350F46AE1736A8AE00B4CF9D /* EditTaskTableViewController.h */,
+				350F46AF1736A8AF00B4CF9D /* EditTaskTableViewController.m */,
+				3598583A17316154000F0B4B /* SelectTaskCategoryViewController.h */,
+				3598583B17316154000F0B4B /* SelectTaskCategoryViewController.m */,
+				35A715C8173008B700B27C0B /* AddTaskTableViewController.h */,
+				35A715C9173008B800B27C0B /* AddTaskTableViewController.m */,
+				3598583D173169A3000F0B4B /* TaskDataController.h */,
+				3598583E173169A3000F0B4B /* TaskDataController.m */,
+				35B31DE2172FDC6F00DC2C93 /* Task.h */,
+				35B31DE3172FDC6F00DC2C93 /* Task.m */,
+				35B31DE5172FE18F00DC2C93 /* Category.h */,
+				35B31DE6172FE18F00DC2C93 /* Category.m */,
 				35B58B48172A5E6C0051FFD6 /* MasterViewController.h */,
 				35B58B49172A5E6C0051FFD6 /* MasterViewController.m */,
 				35B58B4B172A5E6C0051FFD6 /* DetailViewController.h */,
+				35440C2B1739C9BE00C72A02 /* Task.xcdatamodeld */,
 				35B58B4C172A5E6C0051FFD6 /* DetailViewController.m */,
-				35B58B45172A5E6C0051FFD6 /* DSDM.xcdatamodeld */,
 				35B58B31172A5E6C0051FFD6 /* Supporting Files */,
 			);
 			path = DSDM;
@@ -111,6 +144,8 @@
 				35B58B32172A5E6C0051FFD6 /* DSDM-Info.plist */,
 				35B58B33172A5E6C0051FFD6 /* InfoPlist.strings */,
 				35B58B36172A5E6C0051FFD6 /* main.m */,
+				35440C281739A87100C72A02 /* TaskModel.h */,
+				35440C291739A87100C72A02 /* TaskModel.m */,
 				35B58B38172A5E6C0051FFD6 /* DSDM-Prefix.pch */,
 				35B58B3C172A5E6C0051FFD6 /* Default.png */,
 				35B58B3E172A5E6C0051FFD6 /* Default@2x.png */,
@@ -187,9 +222,16 @@
 			files = (
 				35B58B37172A5E6C0051FFD6 /* main.m in Sources */,
 				35B58B3B172A5E6C0051FFD6 /* AppDelegate.m in Sources */,
-				35B58B47172A5E6C0051FFD6 /* DSDM.xcdatamodeld in Sources */,
 				35B58B4A172A5E6C0051FFD6 /* MasterViewController.m in Sources */,
 				35B58B4D172A5E6C0051FFD6 /* DetailViewController.m in Sources */,
+				35B31DE4172FDC6F00DC2C93 /* Task.m in Sources */,
+				35B31DE7172FE18F00DC2C93 /* Category.m in Sources */,
+				35A715CA173008B800B27C0B /* AddTaskTableViewController.m in Sources */,
+				3598583C17316155000F0B4B /* SelectTaskCategoryViewController.m in Sources */,
+				3598583F173169A4000F0B4B /* TaskDataController.m in Sources */,
+				350F46B01736A8AF00B4CF9D /* EditTaskTableViewController.m in Sources */,
+				35440C2A1739A87100C72A02 /* TaskModel.m in Sources */,
+				35440C2D1739C9BE00C72A02 /* Task.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,17 +354,18 @@
 				35B58B52172A5E6C0051FFD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		35B58B45172A5E6C0051FFD6 /* DSDM.xcdatamodeld */ = {
+		35440C2B1739C9BE00C72A02 /* Task.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				35B58B46172A5E6C0051FFD6 /* DSDM.xcdatamodel */,
+				35440C2C1739C9BE00C72A02 /* Task.xcdatamodel */,
 			);
-			currentVersion = 35B58B46172A5E6C0051FFD6 /* DSDM.xcdatamodel */;
-			path = DSDM.xcdatamodeld;
+			currentVersion = 35440C2C1739C9BE00C72A02 /* Task.xcdatamodel */;
+			path = Task.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

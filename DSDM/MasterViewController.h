@@ -10,9 +10,13 @@
 
 #import <CoreData/CoreData.h>
 
-@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSMutableArray* activitiesArray;
+@property (strong, nonatomic) NSString* categoryName;
+
+- (IBAction)remove:(UIStoryboardSegue*)segue;
+- (IBAction)organizeList:(id)sender;
 
 @end
