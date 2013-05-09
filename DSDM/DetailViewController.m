@@ -20,18 +20,6 @@
 
 #pragma mark - Managing the detail item
 
-/*
--(void)setTask:(Task *)task
-{
-    if(_task != task){
-        _task = task;
-        
-        //updating the view
-        [self configureView];
-    }
-}
- */
-
 - (void)configureView
 {
     // Update the user interface for the detail item.

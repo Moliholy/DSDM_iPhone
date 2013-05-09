@@ -17,22 +17,28 @@
 
 @implementation EditTaskTableViewController
 
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+//- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+//{
+//    switch (row) {
+//        case 0:
+//            return INBOX;
+//        case 1:
+//            return NEXT;
+//        case 2:
+//            return WAITTING;
+//        case 3:
+//            return SOME_DAY;
+//        case 4:
+//            return PROJECT;
+//    }
+//    return @"";
+//}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch (row) {
-        case 0:
-            return INBOX;
-        case 1:
-            return NEXT;
-        case 2:
-            return WAITTING;
-        case 3:
-            return SOME_DAY;
-        case 4:
-            return PROJECT;
-    }
-    return @"";
+    
 }
+
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -58,8 +64,8 @@
     self.taskPriority.value = self.editedTask.priority / MAX_PRIORITY;
     
     //let's edit the string picker...
-    self.taskCategorySelector.delegate = self;
-    self.taskCategorySelector.dataSource = self;
+//    self.taskCategorySelector.delegate = self;
+//    self.taskCategorySelector.dataSource = self;
 }
 
 - (void)viewDidLoad

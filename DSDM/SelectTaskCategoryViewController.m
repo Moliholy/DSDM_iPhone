@@ -67,27 +67,33 @@
         EditTaskTableViewController* editView = [segue sourceViewController];
         NSString* originalCategory = editView.editedTask.category;
         NSString* finalCategory = nil;
-        NSInteger index = [editView.taskCategorySelector selectedRowInComponent:0];
-        switch (index) {
-            case 0:
-                finalCategory = INBOX;
-                break;
-            case 1:
-                finalCategory = NEXT;
-                break;
-            case 2:
-                finalCategory = WAITTING;
-                break;
-            case 3:
-                finalCategory = SOME_DAY;
-                break;
-            case 4:
-                finalCategory = PROJECT;
-                break;
-            default:
-                finalCategory = INBOX;
-                break;
-        }
+//        NSInteger index = [editView.taskCategorySelector selectedRowInComponent:0];
+//        switch (index) {
+//            case 0:
+//                finalCategory = INBOX;
+//                break;
+//            case 1:
+//                finalCategory = NEXT;
+//                break;
+//            case 2:
+//                finalCategory = WAITTING;
+//                break;
+//            case 3:
+//                finalCategory = SOME_DAY;
+//                break;
+//            case 4:
+//                finalCategory = PROJECT;
+//                break;
+//            default:
+//                finalCategory = INBOX;
+//                break;
+//        }
+        
+        //----------------------//
+        //          TEMP        //
+        finalCategory = INBOX;
+        //----------------------//
+        
         float priority = editView.taskPriority.value * MAX_PRIORITY;
         Task* newTask = [[Task alloc] initWithName:editView.taskName.text date:editView.editedTask.date note:editView.taskNote.text priority:priority category:finalCategory];
         
