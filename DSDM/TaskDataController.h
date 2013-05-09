@@ -17,6 +17,9 @@
 @property (nonatomic, copy) NSMutableArray* waittingTaskList;
 @property (nonatomic, copy) NSMutableArray* someDayTaskList;
 @property (nonatomic, copy) NSMutableArray* projectTaskList;
+@property (nonatomic, copy) NSMutableArray* trashTaskList;
+@property (nonatomic, copy) NSMutableArray* doneTaskList;
+
 
 - (id)init;
 - (BOOL)loadDataFromCoreData;
@@ -29,5 +32,6 @@
 - (NSInteger)countOfListWithCategory:(NSString*)category;
 - (BOOL)changeTaskCategory:(Task*)task fromCategory:(NSString*)sourceCategory toCategory:(NSString*)destinyCategory;
 - (void) removeTask:(Task*)task atCategory:(NSString*)category;
+- (NSMutableArray*)completedArray;
 
 @end

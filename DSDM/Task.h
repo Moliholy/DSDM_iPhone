@@ -13,11 +13,11 @@
 @property (copy, nonatomic) NSString* name;
 @property (strong, nonatomic) NSDate* date;
 @property (copy, nonatomic) NSString* note;
+@property (copy, nonatomic) NSString* category;
 @property (nonatomic) float priority;
-@property (nonatomic) BOOL alreadyDone;
 
-- (id)init;
-- (id)initWithName:(NSString*)name date:(NSDate*)date note:(NSString*)note priority:(float)priority done:(BOOL)done;
+
+- (id)initWithName:(NSString*)name date:(NSDate*)date note:(NSString*)note priority:(float)priority category:(NSString*)category;
 
 
 @end

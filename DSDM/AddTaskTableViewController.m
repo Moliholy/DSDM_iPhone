@@ -8,6 +8,7 @@
 
 #import "AddTaskTableViewController.h"
 #import "Task.h"
+#import "Category.h"
 
 @interface AddTaskTableViewController ()
 
@@ -22,7 +23,7 @@
         self.addedTask = nil;
         self.taskName.text = @"";
         self.taskNote.text = @"";
-        self.taskPriority.value = 0.0;
+        self.taskPriority.value = 0.0f;
     }
     return self;
 }
@@ -50,7 +51,7 @@
     if([[segue identifier] isEqualToString:@"ReturnInput"]){
         if([self.taskName.text length]){
             float priority = self.taskPriority.value * MAX_PRIORITY;
-            Task* taskToAdd = [[Task alloc] initWithName:self.taskName.text date:[NSDate date] note:self.taskNote.text priority:priority done:NO];
+            Task* taskToAdd = [[Task alloc] initWithName:self.taskName.text date:[NSDate date] note:self.taskNote.text priority:priority category:INBOX];
             self.addedTask = taskToAdd;
         }
     }

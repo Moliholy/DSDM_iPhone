@@ -16,5 +16,7 @@ extern NSString* const NEXT;
 extern NSString* const WAITTING;
 extern NSString* const SOME_DAY;
 extern NSString* const PROJECT;
+extern NSString* const TRASH;
+extern NSString* const DONE;
 
 @end

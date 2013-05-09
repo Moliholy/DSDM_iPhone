@@ -48,6 +48,12 @@
     }
 }
 
+- (void)showExtraOptions:(id)sender
+{
+    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Visualize..." message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"All", @"Completed", @"Trash", nil];
+    [alert show];
+}
+
 - (void)done:(UIStoryboardSegue *)segue
 {
     if([[segue identifier] isEqualToString:@"ReturnInput"]){
@@ -58,9 +64,8 @@
         }
         [self dismissViewControllerAnimated:YES completion:NULL];
     }else if([[segue identifier] isEqualToString:@"EditFinished"]){
-        //TODO hay que implementar esto!!!
         EditTaskTableViewController* editView = [segue sourceViewController];
-        NSString* originalCategory = editView.taskCategory;
+        NSString* originalCategory = editView.editedTask.category;
         NSString* finalCategory = nil;
         NSInteger index = [editView.taskCategorySelector selectedRowInComponent:0];
         switch (index) {
@@ -81,9 +86,10 @@
                 break;
             default:
                 finalCategory = INBOX;
+                break;
         }
         float priority = editView.taskPriority.value * MAX_PRIORITY;
-        Task* newTask = [[Task alloc] initWithName:editView.taskName.text date:editView.editedTask.date note:editView.taskNote.text priority:priority done:editView.taskAlreadyDone.on];
+        Task* newTask = [[Task alloc] initWithName:editView.taskName.text date:editView.editedTask.date note:editView.taskNote.text priority:priority category:finalCategory];
         
         //we have to remove the original task to add a new (modified) one
         [self.taskCategoryArrays removeTask:editView.editedTask atCategory:originalCategory];
@@ -108,8 +114,32 @@
             masterViewController.activitiesArray = self.taskCategoryArrays.someDayTaskList;
         }else if([identifier isEqualToString:PROJECT]){
             masterViewController.activitiesArray = self.taskCategoryArrays.projectTaskList;
+        }else if([identifier isEqualToString:DONE]){
+            masterViewController.activitiesArray = self.taskCategoryArrays.doneTaskList;
+        }else if([identifier isEqualToString:TRASH]){
+            masterViewController.activitiesArray = self.taskCategoryArrays.trashTaskList;
+        }else if([identifier isEqualToString:@"ALL"]){
+            masterViewController.activitiesArray = [self.taskCategoryArrays completedArray];
         }
+        
         masterViewController.categoryName = identifier;
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 1:
+            [self performSegueWithIdentifier: @"ALL" sender: self];
+            break;
+        case 2:
+            [self performSegueWithIdentifier: DONE sender: self];
+            break;
+        case 3:
+            [self performSegueWithIdentifier: TRASH sender: self];
+            break;
+        default:
+            break;
     }
 }
 @end

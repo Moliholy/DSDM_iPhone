@@ -11,7 +11,6 @@
 
 @implementation TaskModel
 
-@dynamic alreadyDone;
 @dynamic category;
 @dynamic date;
 @dynamic name;

@@ -131,8 +131,8 @@
 				35B58B48172A5E6C0051FFD6 /* MasterViewController.h */,
 				35B58B49172A5E6C0051FFD6 /* MasterViewController.m */,
 				35B58B4B172A5E6C0051FFD6 /* DetailViewController.h */,
-				35440C2B1739C9BE00C72A02 /* Task.xcdatamodeld */,
 				35B58B4C172A5E6C0051FFD6 /* DetailViewController.m */,
+				35440C2B1739C9BE00C72A02 /* Task.xcdatamodeld */,
 				35B58B31172A5E6C0051FFD6 /* Supporting Files */,
 			);
 			path = DSDM;

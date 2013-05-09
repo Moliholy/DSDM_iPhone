@@ -11,6 +11,10 @@
 #import "Task.h"
 #import "SelectTaskCategoryViewController.h"
 #import "TaskDataController.h"
+#import "Category.h"
+
+
+
 @interface MasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
@@ -22,11 +26,14 @@
     if([[segue identifier] isEqualToString:@"RemoveInput"]){
         DetailViewController* detaillViewController = [segue sourceViewController];
         Task* taskToRemove = detaillViewController.task;
-        MasterViewController* masterView = [segue destinationViewController];
         SelectTaskCategoryViewController* selectView = [self.navigationController.viewControllers objectAtIndex:0];
         
-        //as always, core data first
-        [selectView.taskCategoryArrays removeTask:taskToRemove atCategory:masterView.categoryName];
+        if (![taskToRemove.category isEqualToString:TRASH]) {
+            // we have to push it inside TRASH category
+            [selectView.taskCategoryArrays changeTaskCategory:taskToRemove fromCategory:taskToRemove.category toCategory:TRASH];
+        } else
+            //as always, core data first
+            [selectView.taskCategoryArrays removeTask:taskToRemove atCategory:taskToRemove.category];
         
         //later the rest
         [self.tableView reloadData];
@@ -46,7 +53,6 @@
     UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Sort by..." message:@"" delegate:self cancelButtonTitle:@"Cancel"
         otherButtonTitles:@"Name",@"Date", @"Already done", @"Priority", nil];
     [alert show];
-
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
@@ -68,10 +74,12 @@
         case 3:
             //already done
             [self.activitiesArray sortUsingComparator:^NSComparisonResult(Task* task1, Task* task2) {
-                if(task1.alreadyDone == task2.alreadyDone)
+                bool task1Done = [task1.category isEqualToString:DONE];
+                bool task2Done = [task2.category isEqualToString:DONE];
+                if(task1Done == task2Done)
                     //if they're both done or undone it will be sorted by name
                     return [task1.name compare:task2.name options:NSCaseInsensitiveSearch];
-                return task1.alreadyDone ? NSOrderedAscending : NSOrderedDescending;
+                return task1Done ? NSOrderedAscending : NSOrderedDescending;
             }];
             break;
         case 4:
@@ -136,7 +144,6 @@
 {
     if ([[segue identifier] isEqualToString:@"ShowTaskDetails"]) {
         DetailViewController* detailViewController = [segue destinationViewController];
-        detailViewController.categoryName = self.categoryName;
         NSUInteger index = [self.tableView indexPathForSelectedRow].row;
         detailViewController.task = [self.activitiesArray objectAtIndex:index];
     }

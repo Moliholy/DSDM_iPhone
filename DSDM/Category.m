@@ -15,5 +15,7 @@ NSString* const NEXT = @"NEXT";
 NSString* const WAITTING = @"WAITTING";
 NSString* const SOME_DAY = @"SOME DAY";
 NSString* const PROJECT = @"PROJECT";
+NSString* const TRASH = @"TRASH";
+NSString* const DONE = @"DONE";
 
 @end

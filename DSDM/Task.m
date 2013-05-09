@@ -12,29 +12,15 @@
 @implementation Task
 
 
-- (id)init
+-(id)initWithName:(NSString *)name date:(NSDate *)date note:(NSString *)note priority:(float)priority category:(NSString *)category
 {
     self = [super init];
     if (self) {
-        self->_alreadyDone = NO;
-        self->_date = [NSDate date];
-        self->_name = @"";
-        self->_note = @"";
-        self->_priority = 0;
-        return self;
-    }
-    return nil;
-}
-
--(id)initWithName:(NSString *)name date:(NSDate *)date note:(NSString *)note priority:(float)priority done:(BOOL)done
-{
-    self = [super init];
-    if (self) {
-        self->_alreadyDone = done;
         self->_date = date;
         self->_name = name;
         self->_note = note;
         self->_priority = priority;
+        self->_category = category;
         return self;
     }
     return nil;

@@ -56,7 +56,6 @@
     self.taskName.text = self.editedTask.name;
     self.taskNote.text = self.editedTask.note;
     self.taskPriority.value = self.editedTask.priority / MAX_PRIORITY;
-    self.taskAlreadyDone.on = self.editedTask.alreadyDone;
     
     //let's edit the string picker...
     self.taskCategorySelector.delegate = self;

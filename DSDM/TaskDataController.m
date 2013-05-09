@@ -10,6 +10,7 @@
 #import "Category.h"
 #import "Task.h"
 #import "AppDelegate.h"
+#import "SelectTaskCategoryViewController.h"
 #import "TaskModel.h"
 
 @implementation TaskDataController
@@ -21,7 +22,6 @@
     TaskModel* taskModel = [NSEntityDescription insertNewObjectForEntityForName:@"TaskModel" inManagedObjectContext:context];
     [taskModel setValue:task.name forKey:@"name"];
     [taskModel setValue:task.note forKey:@"note"];
-    [taskModel setValue:[NSNumber numberWithBool:task.alreadyDone] forKey:@"alreadyDone"];
     [taskModel setValue:task.date forKey:@"date"];
     [taskModel setValue:category forKey:@"category"];
     [taskModel setValue:[NSNumber numberWithFloat:task.priority] forKey:@"priority"];
@@ -35,9 +35,8 @@
 
 - (void)addTaskWithTaskModel:(TaskModel *)taskModel
 {
-    Task* taskToBeAdded = [[Task alloc] initWithName:taskModel.name date:taskModel.date note:taskModel.note priority:[taskModel.priority floatValue] done:(BOOL)taskModel.alreadyDone];
-    NSString* category = taskModel.category;
-    NSMutableArray* array = [self listByCategory:category];
+    Task* taskToBeAdded = [[Task alloc] initWithName:taskModel.name date:taskModel.date note:taskModel.note priority:[taskModel.priority floatValue] category:taskModel.category];
+    NSMutableArray* array = [self listByCategory:taskToBeAdded.category];
     [array addObject:taskToBeAdded];
 }
 
@@ -70,6 +69,8 @@
         self->_waittingTaskList = [[NSMutableArray alloc] init];
         self->_someDayTaskList = [[NSMutableArray alloc] init];
         self->_projectTaskList = [[NSMutableArray alloc] init];
+        self->_trashTaskList = [[NSMutableArray alloc] init];
+        self->_doneTaskList = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -83,6 +84,8 @@
         self->_waittingTaskList = waitting;
         self->_someDayTaskList = someDay;
         self->_projectTaskList = project;
+        self->_trashTaskList = [[NSMutableArray alloc] init];
+        self->_doneTaskList = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -116,6 +119,10 @@
         return _someDayTaskList;
     else if([category isEqualToString: PROJECT])
         return _projectTaskList;
+    else if([category isEqualToString: TRASH])
+        return _trashTaskList;
+    else if([category isEqualToString: DONE])
+        return _doneTaskList;
     
     return nil;
 }
@@ -141,9 +148,10 @@
     NSMutableArray* sourceArray = [self listByCategory:sourceCategory];
     int index = [sourceArray indexOfObject:task];
     if(index >=0){
-        NSMutableArray* destinyArray = [self listByCategory:destinyCategory];
-        [sourceArray removeObjectAtIndex:index];
-        [destinyArray addObject:task];
+        [self removeTask:task atCategory:task.category];
+        task.category = destinyCategory;
+        [self addTaskWithTask:task withCategory:task.category];
+        
         return TRUE;
     }
     return FALSE;
@@ -177,6 +185,20 @@
     //and later the array
     NSMutableArray* myArray = [self listByCategory:category];
     [myArray removeObject:task];
+}
+
+- (NSMutableArray *)completedArray
+{
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    [array addObjectsFromArray:self.inboxTaskList];
+    [array addObjectsFromArray:self.nextTaskList];
+    [array addObjectsFromArray:self.someDayTaskList];
+    [array addObjectsFromArray:self.projectTaskList];
+    [array addObjectsFromArray:self.waittingTaskList];
+    [array addObjectsFromArray:self.doneTaskList];
+    [array addObjectsFromArray:self.trashTaskList];
+    
+     return array;
 }
 
 @end

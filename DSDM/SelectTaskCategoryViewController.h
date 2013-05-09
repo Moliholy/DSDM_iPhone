@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 @class TaskDataController;
 
-@interface SelectTaskCategoryViewController : UIViewController
+@interface SelectTaskCategoryViewController : UIViewController<UIAlertViewDelegate>
 
-@property (nonatomic, copy) TaskDataController* taskCategoryArrays;
+@property (nonatomic, strong) TaskDataController* taskCategoryArrays;
 
 - (IBAction)cancel:(UIStoryboardSegue*)segue;
 - (IBAction)done:(UIStoryboardSegue*)segue;
+- (IBAction)showExtraOptions:(id)sender;
 
 @end

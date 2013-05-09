@@ -10,6 +10,7 @@
 #import "AddTaskTableViewController.h"
 #import "Task.h"
 #import "EditTaskTableViewController.h"
+#import "Category.h"
 
 @interface DetailViewController ()
 - (void)configureView;
@@ -19,6 +20,7 @@
 
 #pragma mark - Managing the detail item
 
+/*
 -(void)setTask:(Task *)task
 {
     if(_task != task){
@@ -28,16 +30,7 @@
         [self configureView];
     }
 }
-
-- (void)setCategoryName:(NSString *)categoryName
-{
-    if(_categoryName != categoryName){
-        _categoryName = categoryName;
-        
-        //updating the view
-        [self configureView];
-    }
-}
+ */
 
 - (void)configureView
 {
@@ -49,13 +42,12 @@
     }
     if(self.task){
         NSString* dateFormatted = [formatter stringFromDate:(NSDate*)self.task.date];
-        self.taskCategoryLabel.text = self.categoryName;
+        self.taskCategoryLabel.text = self.task.category;
         self.taskDateLabel.text = dateFormatted;
         self.taskNameLabel.text = self.task.name;
         self.taskNoteLabel.text = self.task.note;
         float maxPriority = MAX_PRIORITY;
         self.taskPriorityLabel.text = [NSString stringWithFormat:@"%.1f / %.1f", self.task.priority, maxPriority];
-        self.taskAlreadyDoneLabel.text = self.task.alreadyDone ? @"Yes" : @"No";
     }
 }
 
@@ -77,7 +69,6 @@
     if([segue.identifier isEqualToString:@"EditInput"]){
         EditTaskTableViewController* editView = [segue destinationViewController];
         editView.editedTask = self.task;
-        editView.taskCategory = self.categoryName;
     }
 }
 

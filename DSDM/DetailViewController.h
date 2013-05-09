@@ -12,12 +12,10 @@
 @interface DetailViewController : UITableViewController
 
 @property (strong, nonatomic) Task* task;
-@property (weak,nonatomic) NSString* categoryName;
 @property (weak, nonatomic) IBOutlet UILabel *taskNoteLabel;
 @property (weak, nonatomic) IBOutlet UILabel *taskPriorityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *taskDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *taskCategoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *taskNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *taskAlreadyDoneLabel;
 
 @end
