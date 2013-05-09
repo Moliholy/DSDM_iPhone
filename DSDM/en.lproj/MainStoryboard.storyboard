@@ -738,7 +738,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="table" destination="pEU-jj-ef1" id="OuF-Gg-i50"/>
-                        <outlet property="taskCategorySelector" destination="TCB-Sg-Udq" id="nqS-oi-bFv"/>
                         <outlet property="taskName" destination="3NB-lI-eLG" id="QKI-1i-zVq"/>
                         <outlet property="taskNote" destination="Glq-yH-w3u" id="UXs-td-ZuF"/>
                         <outlet property="taskPriority" destination="Pbv-st-mbL" id="SJO-fj-G6V"/>
