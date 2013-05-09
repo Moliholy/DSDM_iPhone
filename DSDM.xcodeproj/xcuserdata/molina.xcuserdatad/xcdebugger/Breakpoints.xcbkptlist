@@ -46,19 +46,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "DSDM/SelectTaskCategoryViewController.m"
-         timestampString = "389782921.249823"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "106"
-         endingLineNumber = "106"
-         landmarkName = "-prepareForSegue:sender:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "DSDM/MasterViewController.m"
          timestampString = "389781372.401666"
          startingColumnNumber = "9223372036854775807"
@@ -312,8 +299,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "35"
          endingLineNumber = "35"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
+         landmarkName = "@implementation SelectTaskCategoryViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -429,7 +416,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "29"
          endingLineNumber = "29"
-         landmarkName = "-awakeFromNib"
+         landmarkName = "-refreshNotificationText"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -533,8 +520,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "66"
          endingLineNumber = "66"
-         landmarkName = "-done:"
-         landmarkType = "5">
+         landmarkName = "@implementation SelectTaskCategoryViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -585,7 +572,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "67"
          endingLineNumber = "67"
-         landmarkName = "-done:"
+         landmarkName = "-showExtraOptions:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -638,6 +625,19 @@
          startingLineNumber = "45"
          endingLineNumber = "45"
          landmarkName = "-loadDataFromCoreData"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "DSDM/SelectTaskCategoryViewController.m"
+         timestampString = "389832897.83131"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "88"
+         endingLineNumber = "88"
+         landmarkName = "-done:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
