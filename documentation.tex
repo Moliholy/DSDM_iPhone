@@ -2,6 +2,7 @@
 \usepackage[spanish, activeacute]{babel}
 \usepackage{graphicx}
 \usepackage{makeidx}
+\usepackage{moreverb}
 
 \title{Dise\~no de Software para Dispositivos M\'oviles}
 \author{Jos\'e Ladislao Lainez Ortega y Jos\'e Molina Colmenero}
@@ -62,6 +63,30 @@ En este punto hay varias versiones de GTD que usan categorías distintas pero no
 \subsection{Interfaz}
 
 \subsection{Notificaciones}
+
+% Code snippet example
+This is an example of code snippet for Moly.
+\begin{verbatimtab}
+-(void)scheduleNotification
+{
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    
+    // notification is going to fire after 20 seconds
+    notification.fireDate = [[NSDate alloc] initWithTimeIntervalSinceNow:20];
+    
+    // message to show
+    notification.alertBody = @"Remeber to take a look at your uncategorized task!";
+    
+    // default sound
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    
+    // button tittle
+    notification.alertAction = @"Go";
+    notification.hasAction = YES;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+}
+\end{verbatimtab}
 
 
 \section{Manual de usuario}
