@@ -9,7 +9,7 @@
 
 \begin{document}
 
-% Pagina inicial
+% FRONT PAGE
 
 \maketitle
 \tableofcontents
@@ -19,16 +19,56 @@
 % MAIN DOCUMENT
 
 \section{Introducci\'on}
-El siguiente documento muetra la información relativa al diseño e implementación de una aplicación de gestión de taréas para iOS, como parte de la asignatura Diseño de Software para Dispositivos Móviles del Grado de Ingeniería informática de la Universidad de Jaén
+El siguiente documento muetra la información relativa al diseño e implementación de una aplicación de gestión de taréas para iOS, como parte de la asignatura Diseño de Software para Dispositivos Móviles del Grado de Ingeniería informática de la Universidad de Jaén.
+
 \section{Concepto}
+Para dar algo de originalidad al proyecto vamos a usar una aproximación distinta al sistema de tareas tradicional, de forma que podamos aplicar esta nueva filosofía en el diseño de la aplicación desde el principio.
 
 \subsection{Getting Things Done}
+O comúnmente conocida como GTD es una metodología de organización de tareas enfocada a la productividad. Sus pilares clave son la sencillez y la categorización, de forma que el usuario no tiene que aprender complejos patrones ni adaptar drásticamente su forma de organizarse.
+
+El funcionamiento base de GTD persigue que el usuario se olvide de las tareas hasta el momento en que tiene que hacerlas, de forma que pueda concentrarse en aquellas tareas que están más cerca en el tiempo. Para ello se hace uso de varias categorías que clasificarán las tareas según unos criterios de cercanía en el tiempo y que serán revisadas una vez al día.
+
+Para conseguir que el usuario no tengan en mente las tareas que tiene que hacer y se pase el día pensando``Que no se me olvide esto, cuando llegue a casa tengo que hacerlo" GTD propone que la creación de tareas sea extremadamente sencilla. Es por esto que GTD propone crear tareas justo en el momento en que las piensas, pero solo especificando un título para esta; no será necesario especificar categoría, fecha ni ningún otro parámetro, el objetivo en ese momento es que el usuario cree la tarea y se olvide de ella para que no siga dando vueltas en su cabeza, ya llegará el momento de atenderla. Estas taréas recién creadas van a la categoría llamada `Inbox'.
+
+A lo largo del día el usuario habrá creado varias tareas que ahora están en la categoría `Inbox'. ¿Qué hace con estas tareas? Pues buscar un momento al día en el que revisar las taréas que se encuentran en `Inbox' y asignarle una nueva categoría aparte de proporcionar la información adicional que sea necesaria.
+
+En este punto hay varias versiones de GTD que usan categorías distintas pero nosotros nos quedaremos en la más básica para mantener la aplicación lo más sencilla de usar, por lo que tendremos las siguientes categorías para asignar a nuestras tareas del `Inbox' según corresponda a cada una:
+
+\begin{description}
+	\item[Next] \hfill \\ Aquellas tareas que se pueden realizar en un intervalo de tiempo próximo. ``Comprar el pan''.
+	\item[Waiting] \hfill \\ Tareas que podrían pertenecer a `Next' pero dependemos de alguien o algo para poder realizarlas. ``Ir de picnic un día soleado''.
+	\item[Project] \hfill \\ Relacionadas con algún projecto en el que el usuario está involucrado. ``Corregir el fallo en la interfaz de la aplicación para DSDM''.
+	\item[Someday] \hfill \\ Cosas que se quieren realizar algún día, planes a largo plazo. ``Comprarme un Macbook Pro Retina Display''.
+\end{description}
 
 \section{Dise\~no}
 
+\subsection{Tareas}
+
+\subsection{Categorías}
+
+\subsection{Interfaz}
+
+\subsection{Notificaciones}
+
+
+\section{Implementación}
+
+\subsection{Tareas}
+
+\subsection{Categorías}
+
+\subsection{Interfaz}
+
+\subsection{Notificaciones}
+
+
+\section{Manual de usuario}
 
 
 % INDEX
+\section{Índice}
 
 \printindex
 
