@@ -51,7 +51,7 @@
 - (void)organizeList:(id)sender
 {
     UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Sort by..." message:@"" delegate:self cancelButtonTitle:@"Cancel"
-        otherButtonTitles:@"Name",@"Date", @"Already done", @"Priority", nil];
+        otherButtonTitles:@"Name",@"Date", @"Completed", @"Priority", nil];
     [alert show];
 }
 

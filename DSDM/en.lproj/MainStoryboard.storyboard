@@ -369,14 +369,13 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="G46-bc-XhD" firstAttribute="leading" secondItem="XHh-M7-UPh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="310-RT-3Vm"/>
                                 <constraint firstItem="qMQ-tw-yYT" firstAttribute="leading" secondItem="XHh-M7-UPh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="YNS-g7-5iG"/>
                                 <constraint firstItem="qMQ-tw-yYT" firstAttribute="top" secondItem="G46-bc-XhD" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="fjC-gA-O4B"/>
-                                <constraint firstItem="G46-bc-XhD" firstAttribute="top" secondItem="XHh-M7-UPh" secondAttribute="top" type="default" id="g1j-No-Zji"/>
                                 <constraint firstAttribute="trailing" secondItem="qMQ-tw-yYT" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="gbF-7R-jJm"/>
                                 <constraint firstAttribute="trailing" secondItem="G46-bc-XhD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="oaD-bb-JP5"/>
+                                <constraint firstItem="G46-bc-XhD" firstAttribute="top" secondItem="XHh-M7-UPh" secondAttribute="top" constant="-1" id="uLO-vb-2hU"/>
                             </constraints>
                         </view>
                         <sections>
