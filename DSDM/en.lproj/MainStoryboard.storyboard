@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -65,7 +65,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="12" kind="push" identifier="SOME DAY" id="SGZ-tY-nUp"/>
+                                    <segue destination="12" kind="push" identifier="SOMEDAY" id="SGZ-tY-nUp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wID-bn-aR7">
@@ -78,7 +78,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="12" kind="push" identifier="WAITTING" id="8dB-Qs-gGk"/>
+                                    <segue destination="12" kind="push" identifier="WAITING" id="8dB-Qs-gGk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1OW-2W-TyL">
@@ -748,63 +748,12 @@
             <point key="canvasLocation" x="1580" y="72"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="AddTaskTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddTaskTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="taskName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="taskNote" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="taskPriority" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="DetailViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="taskCategoryLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="taskDateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="taskNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="taskNoteLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="taskPriorityLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="EditTaskTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditTaskTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="table" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="taskName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="taskNote" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="taskPriority" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="organizeList:"/>
-                <relationship kind="action" name="remove:" candidateClass="UIStoryboardSegue"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SelectTaskCategoryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelectTaskCategoryViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="showExtraOptions:"/>
-                <relationship kind="outlet" name="notificationText" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="65R-Ae-DJQ"/>
+        <segue reference="SGZ-tY-nUp"/>
     </inferredMetricsTieBreakers>
 </document>

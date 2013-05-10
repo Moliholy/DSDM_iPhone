@@ -30,7 +30,7 @@
     }
     if(self.task){
         NSString* dateFormatted = [formatter stringFromDate:(NSDate*)self.task.date];
-        self.taskCategoryLabel.text = self.task.category;
+        self.taskCategoryLabel.text = [self.task.category capitalizedString];
         self.taskDateLabel.text = dateFormatted;
         self.taskNameLabel.text = self.task.name;
         self.taskNoteLabel.text = self.task.note;
