@@ -196,7 +196,7 @@
     [array addObjectsFromArray:self.projectTaskList];
     [array addObjectsFromArray:self.waittingTaskList];
     [array addObjectsFromArray:self.doneTaskList];
-    [array addObjectsFromArray:self.trashTaskList];
+    //[array addObjectsFromArray:self.trashTaskList];
     
      return array;
 }

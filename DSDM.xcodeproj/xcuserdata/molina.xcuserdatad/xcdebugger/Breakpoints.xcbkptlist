@@ -299,8 +299,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "36"
          endingLineNumber = "36"
-         landmarkName = "@implementation SelectTaskCategoryViewController"
-         landmarkType = "3">
+         landmarkName = "-scheduleNotification"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -416,7 +416,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "30"
          endingLineNumber = "30"
-         landmarkName = "-refreshNotificationText"
+         landmarkName = "-scheduleNotification"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -520,8 +520,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "68"
          endingLineNumber = "68"
-         landmarkName = "@implementation SelectTaskCategoryViewController"
-         landmarkType = "3">
+         landmarkName = "-awakeFromNib"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -572,8 +572,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "69"
          endingLineNumber = "69"
-         landmarkName = "-showExtraOptions:"
-         landmarkType = "5">
+         landmarkName = "@implementation SelectTaskCategoryViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -637,7 +637,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "89"
          endingLineNumber = "89"
-         landmarkName = "-done:"
+         landmarkName = "-cancel:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
