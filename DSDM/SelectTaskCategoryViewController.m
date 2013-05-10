@@ -108,9 +108,9 @@
             masterViewController.activitiesArray = self.taskCategoryArrays.inboxTaskList;
         } else if([identifier isEqualToString:NEXT]){
             masterViewController.activitiesArray = self.taskCategoryArrays.nextTaskList;
-        }else if([identifier isEqualToString:WAITTING]){
+        }else if([identifier isEqualToString:WAITING]){
             masterViewController.activitiesArray = self.taskCategoryArrays.waittingTaskList;
-        }else if([identifier isEqualToString:SOME_DAY]){
+        }else if([identifier isEqualToString:SOMEDAY]){
             masterViewController.activitiesArray = self.taskCategoryArrays.someDayTaskList;
         }else if([identifier isEqualToString:PROJECT]){
             masterViewController.activitiesArray = self.taskCategoryArrays.projectTaskList;

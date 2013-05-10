@@ -22,11 +22,11 @@
 {
     if([category isEqualToString:NEXT])
         return 0;
-    else if([category isEqualToString:WAITTING])
+    else if([category isEqualToString:WAITING])
         return 1;
     else if([category isEqualToString:PROJECT])
         return 2;
-    else if([category isEqualToString:SOME_DAY])
+    else if([category isEqualToString:SOMEDAY])
         return 3;
     return 0;
 }
@@ -42,13 +42,13 @@
                 futureCategory = NEXT;
                 break;
             case 1:
-                futureCategory = WAITTING;
+                futureCategory = WAITING;
                 break;
             case 2:
                 futureCategory = PROJECT;
                 break;
             case 3:
-                futureCategory = SOME_DAY;
+                futureCategory = SOMEDAY;
                 break;
         }
     
