@@ -65,7 +65,6 @@
     }
 }
 
-
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -82,6 +81,17 @@
     return 5; //the 5 categories
 }
 
+-(void)viewDidLayoutSubviews
+{
+    //configuring the initial checkmark
+    NSString* category = self.editedTask.category;
+    if([category isEqual:NEXT] || [category isEqual:PROJECT] || [category isEqual:SOMEDAY] || [category isEqual:WAITING]){
+        NSInteger current = [self obtainPath:category];
+        NSIndexPath* currentIndexPath = [NSIndexPath indexPathForRow:current inSection:1];
+        UITableViewCell *currentCell = [self.table cellForRowAtIndexPath:currentIndexPath];
+        currentCell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+}
 
 - (void)configureElements
 {

@@ -10,6 +10,9 @@
 #import "AddTaskTableViewController.h"
 #import "Task.h"
 #import "EditTaskTableViewController.h"
+#import "SelectTaskCategoryViewController.h"
+#import "MasterViewController.h"
+#import "TaskDataController.h"
 #import "Category.h"
 
 @interface DetailViewController ()
@@ -19,6 +22,15 @@
 @implementation DetailViewController
 
 #pragma mark - Managing the detail item
+
+- (void)markAsDone:(id)sender
+{
+    SelectTaskCategoryViewController* selectView = [self.navigationController.viewControllers objectAtIndex:0];
+    [selectView.taskCategoryArrays changeTaskCategory:self.task fromCategory:self.task.category toCategory:DONE];
+    MasterViewController* parentView = [self.navigationController.viewControllers objectAtIndex:1];
+    [parentView.tableView reloadData];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (void)configureView
 {

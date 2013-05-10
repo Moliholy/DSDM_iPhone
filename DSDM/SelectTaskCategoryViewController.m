@@ -63,6 +63,7 @@
     if([[segue identifier] isEqualToString:@"CancelInput"]){
         [self dismissViewControllerAnimated:YES completion:NULL];
     }
+    [self refreshNotificationText];
 }
 
 - (void)showExtraOptions:(id)sender
@@ -94,6 +95,7 @@
         //now adding a new one
         [self.taskCategoryArrays addTaskWithTask:newTask withCategory:finalCategory];
     }
+    [self refreshNotificationText];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

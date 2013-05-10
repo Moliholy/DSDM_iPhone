@@ -24,8 +24,8 @@
 -(void)remove:(UIStoryboardSegue *)segue
 {
     if([[segue identifier] isEqualToString:@"RemoveInput"]){
-        DetailViewController* detaillViewController = [segue sourceViewController];
-        Task* taskToRemove = detaillViewController.task;
+        DetailViewController* detailViewController = [segue sourceViewController];
+        Task* taskToRemove = detailViewController.task;
         SelectTaskCategoryViewController* selectView = [self.navigationController.viewControllers objectAtIndex:0];
         
         if (![taskToRemove.category isEqualToString:TRASH]) {
@@ -34,10 +34,8 @@
         } else
             //as always, core data first
             [selectView.taskCategoryArrays removeTask:taskToRemove atCategory:taskToRemove.category];
-        
-        //later the rest
-        [self.tableView reloadData];
     }
+    [self.tableView reloadData];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 

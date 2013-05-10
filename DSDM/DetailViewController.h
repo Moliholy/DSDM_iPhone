@@ -18,4 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *taskCategoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *taskNameLabel;
 
+- (IBAction)markAsDone:(id)sender;
+
 @end
