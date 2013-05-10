@@ -13,30 +13,56 @@
 
 @interface EditTaskTableViewController ()
 - (void) configureElements;
+- (NSInteger)obtainPath:(NSString*)category;
 @end
 
 @implementation EditTaskTableViewController
 
-//- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-//{
-//    switch (row) {
-//        case 0:
-//            return INBOX;
-//        case 1:
-//            return NEXT;
-//        case 2:
-//            return WAITTING;
-//        case 3:
-//            return SOME_DAY;
-//        case 4:
-//            return PROJECT;
-//    }
-//    return @"";
-//}
-
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSInteger)obtainPath:(NSString *)category
 {
+    if([category isEqualToString:NEXT])
+        return 0;
+    else if([category isEqualToString:WAITTING])
+        return 1;
+    else if([category isEqualToString:PROJECT])
+        return 2;
+    else if([category isEqualToString:SOME_DAY])
+        return 3;
+    return 0;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 1){
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        NSString* futureCategory = nil;
+        switch (indexPath.row) {
+            case 0:
+                futureCategory = NEXT;
+                break;
+            case 1:
+                futureCategory = WAITTING;
+                break;
+            case 2:
+                futureCategory = PROJECT;
+                break;
+            case 3:
+                futureCategory = SOME_DAY;
+                break;
+        }
     
+        NSInteger oldRow = [self obtainPath:self.selectedCategory];
+        NSIndexPath* oldIndexPath = [NSIndexPath indexPathForRow:oldRow inSection:1];
+        UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:oldIndexPath];
+        oldCell.accessoryType = UITableViewCellAccessoryNone;
+    
+        UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
+        if (newCell.accessoryType == UITableViewCellAccessoryNone) {
+            newCell.accessoryType = UITableViewCellAccessoryCheckmark;
+            self.selectedCategory = futureCategory;
+        }
+    }
 }
 
 
@@ -62,10 +88,7 @@
     self.taskName.text = self.editedTask.name;
     self.taskNote.text = self.editedTask.note;
     self.taskPriority.value = self.editedTask.priority / MAX_PRIORITY;
-    
-    //let's edit the string picker...
-//    self.taskCategorySelector.delegate = self;
-//    self.taskCategorySelector.dataSource = self;
+    self.selectedCategory = self.editedTask.category;
 }
 
 - (void)viewDidLoad

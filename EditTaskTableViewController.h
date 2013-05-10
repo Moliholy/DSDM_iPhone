@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *taskNote;
 @property (weak, nonatomic) IBOutlet UISlider *taskPriority;
 @property (strong, nonatomic) IBOutlet UITableView *table;
+@property (strong, nonatomic) NSString* selectedCategory;
 
 @property (strong, nonatomic) NSString *categorySelected;
 

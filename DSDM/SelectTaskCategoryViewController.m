@@ -25,10 +25,11 @@
 -(void)refreshNotificationText
 {
     // Actualizar el texto sobre las tareas sin asignar
-    if ([self.taskCategoryArrays countOfListWithCategory:@"Inbox"] == 0) {
+    int unassignedTasks = [self.taskCategoryArrays countOfListWithCategory:INBOX];
+    if ( unassignedTasks == 0) {
         self.notificationText.text = @"You have assigned all your tasks";
     } else {
-        //self.notificationText.text = [[NSString alloc]initWithFormat:@"You have unassigned tasks"];
+        //self.notificationText.text = [[NSString alloc]initWithFormat:@"You have %d unassigned tasks", unassignedTasks;
         self.notificationText.text = @"You have unassigned tasks";
     }
 }
@@ -84,25 +85,8 @@
     }else if([[segue identifier] isEqualToString:@"EditFinished"]){
         EditTaskTableViewController* editView = [segue sourceViewController];
         NSString* originalCategory = editView.editedTask.category;
-        NSString* finalCategory = nil;
+        NSString* finalCategory = editView.selectedCategory;
         NSInteger index = [editView.tableView indexPathForSelectedRow].row;
-        switch (index) {
-            case 0:
-                finalCategory = NEXT;
-                break;
-            case 1:
-                finalCategory = WAITING;
-                break;
-            case 2:
-                finalCategory = PROJECT;
-                break;
-            case 3:
-                finalCategory = SOMEDAY;
-                break;
-            default:
-                finalCategory = INBOX;
-                break;
-        }
         
         float priority = editView.taskPriority.value * MAX_PRIORITY;
         Task* newTask = [[Task alloc] initWithName:editView.taskName.text date:editView.editedTask.date note:editView.taskNote.text priority:priority category:finalCategory];
@@ -124,9 +108,9 @@
             masterViewController.activitiesArray = self.taskCategoryArrays.inboxTaskList;
         } else if([identifier isEqualToString:NEXT]){
             masterViewController.activitiesArray = self.taskCategoryArrays.nextTaskList;
-        }else if([identifier isEqualToString:WAITING]){
+        }else if([identifier isEqualToString:WAITTING]){
             masterViewController.activitiesArray = self.taskCategoryArrays.waittingTaskList;
-        }else if([identifier isEqualToString:SOMEDAY]){
+        }else if([identifier isEqualToString:SOME_DAY]){
             masterViewController.activitiesArray = self.taskCategoryArrays.someDayTaskList;
         }else if([identifier isEqualToString:PROJECT]){
             masterViewController.activitiesArray = self.taskCategoryArrays.projectTaskList;
