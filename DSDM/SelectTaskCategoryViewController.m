@@ -91,13 +91,13 @@
                 finalCategory = NEXT;
                 break;
             case 1:
-                finalCategory = WAITTING;
+                finalCategory = WAITING;
                 break;
             case 2:
                 finalCategory = PROJECT;
                 break;
             case 3:
-                finalCategory = SOME_DAY;
+                finalCategory = SOMEDAY;
                 break;
             default:
                 finalCategory = INBOX;
