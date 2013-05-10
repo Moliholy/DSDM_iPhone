@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -30,7 +30,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You have X unassigned tasks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0p-2f-jhe">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="1rC-wZ-ECX"/>
+                                    <constraint firstAttribute="width" constant="224" id="vwv-zo-CMx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -94,25 +98,25 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.41960784309999999" green="0.69411764710000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.17254901960784313" green="0.27450980392156865" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="t9V-8Y-Ptb" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="8KR-wp-k3z"/>
                             <constraint firstItem="b0p-2f-jhe" firstAttribute="centerX" secondItem="ZcZ-3t-uEF" secondAttribute="centerX" type="default" id="JCa-2O-hoQ"/>
                             <constraint firstAttribute="trailing" secondItem="wID-bn-aR7" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Kwh-B7-f73"/>
                             <constraint firstItem="b0p-2f-jhe" firstAttribute="top" secondItem="Vdo-Pk-CRQ" secondAttribute="top" constant="14" id="Pjg-VO-3z6"/>
-                            <constraint firstItem="wID-bn-aR7" firstAttribute="top" secondItem="t9V-8Y-Ptb" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="TfI-Up-gsV"/>
                             <constraint firstItem="t9V-8Y-Ptb" firstAttribute="top" secondItem="Vdo-Pk-CRQ" secondAttribute="top" constant="154" id="WAb-Zp-4Tr"/>
                             <constraint firstAttribute="trailing" secondItem="ZcZ-3t-uEF" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="X8F-UO-CVo"/>
-                            <constraint firstItem="C6w-c2-XLo" firstAttribute="top" secondItem="M0P-Jt-Y7q" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="XLV-gb-WdK"/>
+                            <constraint firstItem="C6w-c2-XLo" firstAttribute="top" secondItem="M0P-Jt-Y7q" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ZXV-hy-cOi"/>
                             <constraint firstItem="ZcZ-3t-uEF" firstAttribute="top" secondItem="b0p-2f-jhe" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="avi-Dd-5Nq"/>
+                            <constraint firstItem="wID-bn-aR7" firstAttribute="top" secondItem="t9V-8Y-Ptb" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="bqe-c8-x1L"/>
                             <constraint firstItem="C6w-c2-XLo" firstAttribute="leading" secondItem="Vdo-Pk-CRQ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="f2c-Mk-WWI"/>
                             <constraint firstItem="ZcZ-3t-uEF" firstAttribute="leading" secondItem="Vdo-Pk-CRQ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="gqk-TK-Jih"/>
-                            <constraint firstItem="M0P-Jt-Y7q" firstAttribute="top" secondItem="wID-bn-aR7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="hH1-54-Ue1"/>
                             <constraint firstAttribute="trailing" secondItem="C6w-c2-XLo" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="lQS-L3-vAs"/>
                             <constraint firstItem="M0P-Jt-Y7q" firstAttribute="leading" secondItem="Vdo-Pk-CRQ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="oKw-DR-McD"/>
                             <constraint firstItem="t9V-8Y-Ptb" firstAttribute="leading" secondItem="Vdo-Pk-CRQ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="obf-Et-Zrd"/>
                             <constraint firstAttribute="trailing" secondItem="M0P-Jt-Y7q" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="skH-aW-gGY"/>
                             <constraint firstItem="wID-bn-aR7" firstAttribute="leading" secondItem="Vdo-Pk-CRQ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="tq3-KZ-gsb"/>
+                            <constraint firstItem="M0P-Jt-Y7q" firstAttribute="top" secondItem="wID-bn-aR7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xfJ-Mm-FBt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="q4r-ia-yDR">
