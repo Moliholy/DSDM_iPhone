@@ -72,9 +72,7 @@
 }
 
 - (void)done:(UIStoryboardSegue *)segue
-{
-    [self refreshNotificationText];
-    
+{    
     if([[segue identifier] isEqualToString:@"ReturnInput"]){
         AddTaskTableViewController* addController = [segue sourceViewController];
         if(addController.addedTask){
@@ -86,7 +84,6 @@
         EditTaskTableViewController* editView = [segue sourceViewController];
         NSString* originalCategory = editView.editedTask.category;
         NSString* finalCategory = editView.selectedCategory;
-        NSInteger index = [editView.tableView indexPathForSelectedRow].row;
         
         float priority = editView.taskPriority.value * MAX_PRIORITY;
         Task* newTask = [[Task alloc] initWithName:editView.taskName.text date:editView.editedTask.date note:editView.taskNote.text priority:priority category:finalCategory];
