@@ -20,52 +20,95 @@
 % MAIN DOCUMENT
 
 \section{Introducci\'on}
-El siguiente documento muetra la información relativa al diseño e implementación de una aplicación de gestión de taréas para iOS, como parte de la asignatura Diseño de Software para Dispositivos Móviles del Grado de Ingeniería informática de la Universidad de Jaén.
+El siguiente documento muetra la informaci\'on relativa al dise\~no e implementaci\'on de una aplicaci\'on de gesti\'on de tar\'eas para iOS, como parte de la asignatura Dise\~no de Software para Dispositivos M\'oviles del Grado de Ingenier\'ia inform\'atica de la Universidad de Ja\'en.
 
 \section{Concepto}
-Para dar algo de originalidad al proyecto vamos a usar una aproximación distinta al sistema de tareas tradicional, de forma que podamos aplicar esta nueva filosofía en el diseño de la aplicación desde el principio.
+Para dar algo de originalidad al proyecto vamos a usar una aproximaci\'on distinta al sistema de tareas tradicional, de forma que podamos aplicar esta nueva filosof\'ia en el dise\~no de la aplicaci\'on desde el principio.
 
 \subsection{Getting Things Done}
-O comúnmente conocida como GTD es una metodología de organización de tareas enfocada a la productividad. Sus pilares clave son la sencillez y la categorización, de forma que el usuario no tiene que aprender complejos patrones ni adaptar drásticamente su forma de organizarse.
+O com\'unmente conocida como GTD es una metodolog\'ia de organizaci\'on de tareas enfocada a la productividad. Sus pilares clave son la sencillez y la categorizaci\'on, de forma que el usuario no tiene que aprender complejos patrones ni adaptar dr\'asticamente su forma de organizarse.
 
-El funcionamiento base de GTD persigue que el usuario se olvide de las tareas hasta el momento en que tiene que hacerlas, de forma que pueda concentrarse en aquellas tareas que están más cerca en el tiempo. Para ello se hace uso de varias categorías que clasificarán las tareas según unos criterios de cercanía en el tiempo y que serán revisadas una vez al día.
+El funcionamiento base de GTD persigue que el usuario se olvide de las tareas hasta el momento en que tiene que hacerlas, de forma que pueda concentrarse en aquellas tareas que est\'an m\'as cerca en el tiempo. Para ello se hace uso de varias categor\'ias que clasificar\'an las tareas seg\'un unos criterios de cercan\'ia en el tiempo y que ser\'an revisadas una vez al d\'ia.
 
-Para conseguir que el usuario no tengan en mente las tareas que tiene que hacer y se pase el día pensando``Que no se me olvide esto, cuando llegue a casa tengo que hacerlo" GTD propone que la creación de tareas sea extremadamente sencilla. Es por esto que GTD propone crear tareas justo en el momento en que las piensas, pero solo especificando un título para esta; no será necesario especificar categoría, fecha ni ningún otro parámetro, el objetivo en ese momento es que el usuario cree la tarea y se olvide de ella para que no siga dando vueltas en su cabeza, ya llegará el momento de atenderla. Estas taréas recién creadas van a la categoría llamada `Inbox'.
+Para conseguir que el usuario no tengan en mente las tareas que tiene que hacer y se pase el d\'ia pensando``Que no se me olvide esto, cuando llegue a casa tengo que hacerlo" GTD propone que la creaci\'on de tareas sea extremadamente sencilla. Es por esto que GTD propone crear tareas justo en el momento en que las piensas, pero solo especificando un t\'itulo para esta; no ser\'a necesario especificar categor\'ia, fecha ni ning\'un otro par\'ametro, el objetivo en ese momento es que el usuario cree la tarea y se olvide de ella para que no siga dando vueltas en su cabeza, ya llegar\'a el momento de atenderla. Estas tar\'eas reci\'en creadas van a la categor\'ia llamada `Inbox'.
 
-A lo largo del día el usuario habrá creado varias tareas que ahora están en la categoría `Inbox'. ¿Qué hace con estas tareas? Pues buscar un momento al día en el que revisar las taréas que se encuentran en `Inbox' y asignarle una nueva categoría aparte de proporcionar la información adicional que sea necesaria.
+A lo largo del d\'ia el usuario habr\'a creado varias tareas que ahora est\'an en la categor\'ia `Inbox'. ¿Qu\'e hace con estas tareas? Pues buscar un momento al d\'ia en el que revisar las tar\'eas que se encuentran en `Inbox' y asignarle una nueva categor\'ia aparte de proporcionar la informaci\'on adicional que sea necesaria.
 
-En este punto hay varias versiones de GTD que usan categorías distintas pero nosotros nos quedaremos en la más básica para mantener la aplicación lo más sencilla de usar, por lo que tendremos las siguientes categorías para asignar a nuestras tareas del `Inbox' según corresponda a cada una:
+En este punto hay varias versiones de GTD que usan categor\'ias distintas pero nosotros nos quedaremos en la m\'as b\'asica para mantener la aplicaci\'on lo m\'as sencilla de usar, por lo que tendremos las siguientes categor\'ias para asignar a nuestras tareas del `Inbox' seg\'un corresponda a cada una:
 
 \begin{description}
-	\item[Next] \hfill \\ Aquellas tareas que se pueden realizar en un intervalo de tiempo próximo. ``Comprar el pan''.
-	\item[Waiting] \hfill \\ Tareas que podrían pertenecer a `Next' pero dependemos de alguien o algo para poder realizarlas. ``Ir de picnic un día soleado''.
-	\item[Project] \hfill \\ Relacionadas con algún projecto en el que el usuario está involucrado. ``Corregir el fallo en la interfaz de la aplicación para DSDM''.
-	\item[Someday] \hfill \\ Cosas que se quieren realizar algún día, planes a largo plazo. ``Comprarme un Macbook Pro Retina Display''.
+	\item[Next] \hfill \\ Aquellas tareas que se pueden realizar pr\'oximamente. ``Comprar el pan''.
+	\item[Waiting] \hfill \\ Tareas que podr\'ian pertenecer a `Next' pero dependemos de alguien o algo para poder realizarlas. ``Ir de picnic un d\'ia soleado''.
+	\item[Project] \hfill \\ Relacionadas con alg\'un proyecto en el que el usuario est\'a involucrado. ``Corregir el fallo en la interfaz de la aplicaci\'on para DSDM''.
+	\item[Someday] \hfill \\ Cosas que se quieren realizar alg\'un d\'ia, planes a largo plazo. ``Comprar un MacBook Pro Retina Display''.
 \end{description}
+
+De esta forma hemos dividido en dos etapas el flujo de trabajo; durante la primera se crean las tareas, que quedar\'an almacenadas en un buz\'on (`Inbox') para que no tengamos que pensar en ellas durante todo el d\'ia y la segunda en la que revisamos las tareas para actualizar su informaci\'on ya sea cambi\'andolas de categor\'ia, marc\'andolas como completadas o elimin\'andolas si ya no son necesarias.
 
 \section{Dise\~no}
 
+Siguiendo la filosof\'ia anterior dise\~naremos nuestra aplicaci\'on para que se amolde al esquema de funcionamiento de GTD, procurando que sea lo m\'as sencillo posible.
+
 \subsection{Tareas}
 
-\subsection{Categorías}
+Las tareas estar\'an compuestas por los siguientes atributos:
+\begin{itemize}
+	\item Nombre.
+	\item Descripcion o notas.
+	\item Prioridad.
+	\item Fecha de creaci\'on.
+	\item Categor\'ia.
+\end{itemize}
+
+Al crear la tarea esta recibir\'a la categor\'ia `Inbox' autom\'aticamente, pudiendo ser esta modificada m\'as adelante durante la revisi\'on de las tareas. Los atributos `prioridad' y `fecha de creaci\'on' se han a\~nadido por conveniencia a pesar de no ser necesarios en la metodolog\'ia GTD para aportar m\'as opciones de ordenaci\'on a la hora de visualizar el listado de tareas de una categor\'ia.
+
+\subsection{Categor\'ias}
+
+Ya hemos comentado antes una serie de categor\'ias relacionadas con GTD, pero hemos de a\~nadir otras dos m\'as para contemplar dos posibles estados de las tareas; completadas y borradas.
+
+\begin{itemize}
+	\item Inbox.
+	\item Next.
+	\item Waiting.
+	\item Project.
+	\item Someday.
+	\item Completed.
+	\item Trash. 
+\end{itemize}
+
+Las categor\'ias `Completed' y `Trash' son asignadas a las tareas completadas y eliminadas respectivamente, de forma que podamos listar estas tareas en nuestra aplicaci\'on. Aunque estas categor\'ias no entren dentro de GTD eran necesar\'ias por los requisitos impuestos para el proyecto.
+
+\subsection{Interfaz}
+
+La funcionalidad que debe otorgar la aplicaci\'on debe ser directa y sencilla para que la creaci\'on de tareas sea lo m\'as \'agil posible y debemos poder ver las tareas por categor\'ias a la hora de revisarlas y editarlas durante la revisi\'on diaria de tareas.
+
+Por tanto la aplicaci\'on debe contar con las siguientes vistas:
+
+\begin{description}
+	\item[Home] \hfill \\ Acceso directo al `Inbox' y a la creaci\'on de tareas, as\'i como a las categor\'ias.
+	\item[Creaci\'on de tarea] \hfill \\ Permite crear una tarea nueva.
+	\item[Categor\'ia] \hfill \\ Listado de las tareas pertenencientes a una tarea. Debe permitir ordenar la lista seg\'un varios criterios.
+	\item[Tarea] \hfill \\ Visualzaci\'on de la informaci\'on de una tarea concreta. Se debe poder editar la informaci\'on de la tarea para realizar, por ejemplo, el cambio de categor\'ia. Tambi\'en se debe poder marcar la tarea como completada o borrarla si ya no es necesaria.
+	\item[Edici\'on]	\hfill \\ Edici\'on de la informaci\'on de la tarea. Se debe poder escoger la categor\'ia a la que asignarla.
+\end{description}
+
+\subsection{Notificaciones}
+
+Aunque en un principio pueda parecer que insertar notificaciones para las tareas individuales que se encuentran en `Inbox' es una buena idea, rompe con un concepto fundamental de GTD; que el usuario deje de pensar en la tarea tras crearla y hasta que revise el `Inbox'. Una buena idea de notificaci\'on ser\'ia una que avisara al usuario que tiene tareas sin clasificar en la categor\'ia `Inbox' cada cierto tiempo (unas 12~16 horas estar\'ia bien), de forma que este no olvide revisar sus tareas al menos una vez al d\'ia, pero sin saturarlo.
+
+\section{Implementaci\'on}
+
+\subsection{Tareas}
+
+\subsection{Categor\'ias}
 
 \subsection{Interfaz}
 
 \subsection{Notificaciones}
 
-
-\section{Implementación}
-
-\subsection{Tareas}
-
-\subsection{Categorías}
-
-\subsection{Interfaz}
-
-\subsection{Notificaciones}
+A pesar de la idea propuesta en la fase de dise\~no, para poder mostrar la implementaci\'on de las notificaciones y que el profesor no tenga que esperar x horas como se propon\'ia, se ha hecho que aparezca una notificaci\'on 20 segundos despu\'es de iniciar la aplicaci\'on.
 
 % Code snippet example
-This is an example of code snippet for Moly.
 \begin{verbatimtab}
 -(void)scheduleNotification
 {
@@ -87,14 +130,5 @@ This is an example of code snippet for Moly.
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 }
 \end{verbatimtab}
-
-
-\section{Manual de usuario}
-
-
-% INDEX
-\section{Índice}
-
-\printindex
 
 \end{document}
