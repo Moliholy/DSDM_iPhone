@@ -29,10 +29,12 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You have X unassigned tasks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0p-2f-jhe">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZcZ-3t-uEF">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="MNH-tm-MaP"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <state key="normal" title="Inbox">
                                     <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
@@ -42,30 +44,14 @@
                                     <segue destination="12" kind="push" identifier="INBOX" id="ciR-Jp-n7V"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1o-6U-gLo">
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal" title="Next">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0P-Jt-Y7q">
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
+                                <state key="normal" title="Project">
                                     <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                                 <connections>
-                                    <segue destination="12" kind="push" identifier="NEXT" id="EIV-nn-m71"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWE-04-pKk">
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal" title="Someday">
-                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="12" kind="push" identifier="SOMEDAY" id="SGZ-tY-nUp"/>
+                                    <segue destination="12" kind="push" identifier="PROJECT" id="19J-81-rRc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wID-bn-aR7">
@@ -81,9 +67,9 @@
                                     <segue destination="12" kind="push" identifier="WAITING" id="8dB-Qs-gGk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1OW-2W-TyL">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9V-8Y-Ptb">
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal" title="Project">
+                                <state key="normal" title="Next">
                                     <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -91,39 +77,41 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="12" kind="push" identifier="PROJECT" id="q9W-Im-EOD"/>
+                                    <segue destination="12" kind="push" identifier="NEXT" id="2bt-Gz-84o"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You have X unassigned tasks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0p-2f-jhe">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Okt-oz-Ylf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6w-c2-XLo">
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <state key="normal" title="Someday">
+                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="12" kind="push" identifier="SOMEDAY" id="M7p-6j-wc9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.41960784309999999" green="0.69411764710000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="kWE-04-pKk" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0QC-p1-Vup"/>
-                            <constraint firstItem="wID-bn-aR7" firstAttribute="top" secondItem="s1o-6U-gLo" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="5uS-al-GNT"/>
-                            <constraint firstItem="kWE-04-pKk" firstAttribute="leading" secondItem="Vdo-Pk-CRQ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="9mN-1v-wNT"/>
-                            <constraint firstItem="1OW-2W-TyL" firstAttribute="leading" secondItem="Vdo-Pk-CRQ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Big-cD-usS"/>
-                            <constraint firstItem="wID-bn-aR7" firstAttribute="baseline" secondItem="1OW-2W-TyL" secondAttribute="baseline" type="default" id="DgR-Wo-XkJ"/>
-                            <constraint firstItem="1OW-2W-TyL" firstAttribute="top" secondItem="wID-bn-aR7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="E4n-FB-0DM"/>
-                            <constraint firstItem="kWE-04-pKk" firstAttribute="top" secondItem="1OW-2W-TyL" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="FZH-cd-5zn"/>
-                            <constraint firstItem="s1o-6U-gLo" firstAttribute="leading" secondItem="Vdo-Pk-CRQ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="G6y-ww-eF8"/>
+                            <constraint firstAttribute="trailing" secondItem="t9V-8Y-Ptb" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="8KR-wp-k3z"/>
                             <constraint firstItem="b0p-2f-jhe" firstAttribute="centerX" secondItem="ZcZ-3t-uEF" secondAttribute="centerX" type="default" id="JCa-2O-hoQ"/>
                             <constraint firstAttribute="trailing" secondItem="wID-bn-aR7" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Kwh-B7-f73"/>
                             <constraint firstItem="b0p-2f-jhe" firstAttribute="top" secondItem="Vdo-Pk-CRQ" secondAttribute="top" constant="14" id="Pjg-VO-3z6"/>
-                            <constraint firstItem="kWE-04-pKk" firstAttribute="baseline" secondItem="1OW-2W-TyL" secondAttribute="baseline" type="default" id="PsG-Wi-5dE"/>
-                            <constraint firstAttribute="trailing" secondItem="1OW-2W-TyL" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="RbT-rc-XJa"/>
+                            <constraint firstItem="wID-bn-aR7" firstAttribute="top" secondItem="t9V-8Y-Ptb" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="TfI-Up-gsV"/>
+                            <constraint firstItem="t9V-8Y-Ptb" firstAttribute="top" secondItem="Vdo-Pk-CRQ" secondAttribute="top" constant="154" id="WAb-Zp-4Tr"/>
                             <constraint firstAttribute="trailing" secondItem="ZcZ-3t-uEF" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="X8F-UO-CVo"/>
+                            <constraint firstItem="C6w-c2-XLo" firstAttribute="top" secondItem="M0P-Jt-Y7q" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="XLV-gb-WdK"/>
                             <constraint firstItem="ZcZ-3t-uEF" firstAttribute="top" secondItem="b0p-2f-jhe" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="avi-Dd-5Nq"/>
-                            <constraint firstItem="s1o-6U-gLo" firstAttribute="baseline" secondItem="ZcZ-3t-uEF" secondAttribute="baseline" type="default" id="dlH-JH-bbj"/>
+                            <constraint firstItem="C6w-c2-XLo" firstAttribute="leading" secondItem="Vdo-Pk-CRQ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="f2c-Mk-WWI"/>
                             <constraint firstItem="ZcZ-3t-uEF" firstAttribute="leading" secondItem="Vdo-Pk-CRQ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="gqk-TK-Jih"/>
-                            <constraint firstAttribute="trailing" secondItem="s1o-6U-gLo" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="rse-fe-c7x"/>
-                            <constraint firstItem="s1o-6U-gLo" firstAttribute="top" secondItem="Vdo-Pk-CRQ" secondAttribute="top" constant="154" id="sgU-sS-bJt"/>
+                            <constraint firstItem="M0P-Jt-Y7q" firstAttribute="top" secondItem="wID-bn-aR7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="hH1-54-Ue1"/>
+                            <constraint firstAttribute="trailing" secondItem="C6w-c2-XLo" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="lQS-L3-vAs"/>
+                            <constraint firstItem="M0P-Jt-Y7q" firstAttribute="leading" secondItem="Vdo-Pk-CRQ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="oKw-DR-McD"/>
+                            <constraint firstItem="t9V-8Y-Ptb" firstAttribute="leading" secondItem="Vdo-Pk-CRQ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="obf-Et-Zrd"/>
+                            <constraint firstAttribute="trailing" secondItem="M0P-Jt-Y7q" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="skH-aW-gGY"/>
                             <constraint firstItem="wID-bn-aR7" firstAttribute="leading" secondItem="Vdo-Pk-CRQ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="tq3-KZ-gsb"/>
                         </constraints>
                     </view>
@@ -809,6 +797,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="SGZ-tY-nUp"/>
+        <segue reference="19J-81-rRc"/>
     </inferredMetricsTieBreakers>
 </document>
