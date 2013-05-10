@@ -18,6 +18,7 @@
 
 @implementation EditTaskTableViewController
 
+
 - (NSInteger)obtainPath:(NSString *)category
 {
     if([category isEqualToString:NEXT])

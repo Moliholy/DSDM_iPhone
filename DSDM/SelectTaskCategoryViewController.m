@@ -16,11 +16,33 @@
 
 @interface SelectTaskCategoryViewController ()
 
--(void)refreshNotificationText;
-
+- (void)refreshNotificationText;
+- (void)scheduleNotification;
 @end
 
 @implementation SelectTaskCategoryViewController
+
+
+
+-(void)scheduleNotification
+{
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    
+    // notification is going to fire after 20 seconds
+    notification.fireDate = [[NSDate alloc] initWithTimeIntervalSinceNow:20];
+    
+    // message to show
+    notification.alertBody = @"Remeber to take a look at your uncategorized task!";
+    
+    // default sound
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    
+    // button tittle
+    notification.alertAction = @"Go";
+    notification.hasAction = YES;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+}
 
 -(void)refreshNotificationText
 {
@@ -50,6 +72,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self refreshNotificationText];
+    [self scheduleNotification];
 }
 
 - (void)didReceiveMemoryWarning

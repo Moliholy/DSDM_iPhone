@@ -16,6 +16,19 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+-(void) application:(UIApplication *)application
+    didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Inbox category"
+        message:notification.alertBody
+        delegate:nil
+        cancelButtonTitle:nil
+        otherButtonTitles:@"OK", nil];
+    [alert show];
+}
+
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.

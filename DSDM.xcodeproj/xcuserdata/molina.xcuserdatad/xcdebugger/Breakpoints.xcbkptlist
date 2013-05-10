@@ -294,11 +294,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "DSDM/SelectTaskCategoryViewController.m"
-         timestampString = "389835838.292745"
+         timestampString = "389878321.863536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "36"
-         endingLineNumber = "36"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
          landmarkName = "@implementation SelectTaskCategoryViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -411,11 +411,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "DSDM/SelectTaskCategoryViewController.m"
-         timestampString = "389835838.292745"
+         timestampString = "389878321.863536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "30"
-         endingLineNumber = "30"
+         startingLineNumber = "53"
+         endingLineNumber = "53"
          landmarkName = "-refreshNotificationText"
          landmarkType = "5">
       </FileBreakpoint>
@@ -437,11 +437,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "DSDM/AppDelegate.m"
-         timestampString = "389662302.328431"
+         timestampString = "389878321.863536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "96"
-         endingLineNumber = "96"
+         startingLineNumber = "109"
+         endingLineNumber = "109"
          landmarkName = "-managedObjectModel"
          landmarkType = "5">
       </FileBreakpoint>
@@ -450,11 +450,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "DSDM/AppDelegate.m"
-         timestampString = "389662302.328431"
+         timestampString = "389878321.863536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "112"
-         endingLineNumber = "112"
+         startingLineNumber = "125"
+         endingLineNumber = "125"
          landmarkName = "-persistentStoreCoordinator"
          landmarkType = "5">
       </FileBreakpoint>
@@ -463,11 +463,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "DSDM/AppDelegate.m"
-         timestampString = "389662847.637925"
+         timestampString = "389878321.863536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "86"
-         endingLineNumber = "86"
+         startingLineNumber = "99"
+         endingLineNumber = "99"
          landmarkName = "-managedObjectContext"
          landmarkType = "5">
       </FileBreakpoint>
@@ -515,11 +515,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "DSDM/SelectTaskCategoryViewController.m"
-         timestampString = "389864669.740139"
+         timestampString = "389878321.863536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "68"
-         endingLineNumber = "68"
+         startingLineNumber = "92"
+         endingLineNumber = "92"
          landmarkName = "@implementation SelectTaskCategoryViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -567,11 +567,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "DSDM/SelectTaskCategoryViewController.m"
-         timestampString = "389864669.740139"
+         timestampString = "389878321.863536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "69"
-         endingLineNumber = "69"
+         startingLineNumber = "93"
+         endingLineNumber = "93"
          landmarkName = "-showExtraOptions:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -632,11 +632,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "DSDM/SelectTaskCategoryViewController.m"
-         timestampString = "389865411.325179"
+         timestampString = "389878321.863536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "89"
-         endingLineNumber = "89"
+         startingLineNumber = "113"
+         endingLineNumber = "113"
          landmarkName = "-done:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -645,11 +645,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "EditTaskTableViewController.m"
-         timestampString = "389837936.336725"
+         timestampString = "389878321.863536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "64"
-         endingLineNumber = "64"
+         startingLineNumber = "65"
+         endingLineNumber = "65"
          landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -658,7 +658,20 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "EditTaskTableViewController.m"
-         timestampString = "389837936.336725"
+         timestampString = "389878321.863536"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "56"
+         endingLineNumber = "56"
+         landmarkName = "-tableView:didSelectRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "EditTaskTableViewController.m"
+         timestampString = "389878321.863536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "55"
@@ -671,7 +684,20 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "EditTaskTableViewController.m"
-         timestampString = "389837936.336725"
+         timestampString = "389878321.863536"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "60"
+         endingLineNumber = "60"
+         landmarkName = "-tableView:didSelectRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "EditTaskTableViewController.m"
+         timestampString = "389878321.863536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "54"
@@ -684,37 +710,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "EditTaskTableViewController.m"
-         timestampString = "389838357.599678"
+         timestampString = "389878321.863536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
-         landmarkName = "-tableView:didSelectRowAtIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "EditTaskTableViewController.m"
-         timestampString = "389838358.478974"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "53"
-         endingLineNumber = "53"
-         landmarkName = "-tableView:didSelectRowAtIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "EditTaskTableViewController.m"
-         timestampString = "389870049.555035"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "101"
-         endingLineNumber = "101"
+         startingLineNumber = "102"
+         endingLineNumber = "102"
          landmarkName = "-configureElements"
          landmarkType = "5">
       </FileBreakpoint>
@@ -723,11 +723,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "EditTaskTableViewController.m"
-         timestampString = "389870049.555035"
+         timestampString = "389878321.863536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "101"
-         endingLineNumber = "101"
+         startingLineNumber = "102"
+         endingLineNumber = "102"
          landmarkName = "-configureElements"
          landmarkType = "5">
       </FileBreakpoint>
@@ -736,11 +736,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "EditTaskTableViewController.m"
-         timestampString = "389870049.555035"
+         timestampString = "389878321.863536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "99"
-         endingLineNumber = "99"
+         startingLineNumber = "100"
+         endingLineNumber = "100"
          landmarkName = "-configureElements"
          landmarkType = "5">
       </FileBreakpoint>
@@ -749,11 +749,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "EditTaskTableViewController.m"
-         timestampString = "389870065.456927"
+         timestampString = "389878321.863536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "87"
-         endingLineNumber = "87"
+         startingLineNumber = "88"
+         endingLineNumber = "88"
          landmarkName = "-viewDidLayoutSubviews"
          landmarkType = "5">
       </FileBreakpoint>
