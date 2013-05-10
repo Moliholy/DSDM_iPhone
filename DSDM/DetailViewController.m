@@ -10,6 +10,9 @@
 #import "AddTaskTableViewController.h"
 #import "Task.h"
 #import "EditTaskTableViewController.h"
+#import "SelectTaskCategoryViewController.h"
+#import "MasterViewController.h"
+#import "TaskDataController.h"
 #import "Category.h"
 
 @interface DetailViewController ()
@@ -20,17 +23,14 @@
 
 #pragma mark - Managing the detail item
 
-/*
--(void)setTask:(Task *)task
+- (void)markAsDone:(id)sender
 {
-    if(_task != task){
-        _task = task;
-        
-        //updating the view
-        [self configureView];
-    }
+    SelectTaskCategoryViewController* selectView = [self.navigationController.viewControllers objectAtIndex:0];
+    [selectView.taskCategoryArrays changeTaskCategory:self.task fromCategory:self.task.category toCategory:DONE];
+    MasterViewController* parentView = [self.navigationController.viewControllers objectAtIndex:1];
+    [parentView.tableView reloadData];
+    [self.navigationController popViewControllerAnimated:YES];
 }
- */
 
 - (void)configureView
 {
@@ -42,7 +42,7 @@
     }
     if(self.task){
         NSString* dateFormatted = [formatter stringFromDate:(NSDate*)self.task.date];
-        self.taskCategoryLabel.text = self.task.category;
+        self.taskCategoryLabel.text = [self.task.category capitalizedString];
         self.taskDateLabel.text = dateFormatted;
         self.taskNameLabel.text = self.task.name;
         self.taskNoteLabel.text = self.task.note;

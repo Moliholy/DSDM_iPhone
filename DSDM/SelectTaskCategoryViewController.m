@@ -16,9 +16,23 @@
 
 @interface SelectTaskCategoryViewController ()
 
+-(void)refreshNotificationText;
+
 @end
 
 @implementation SelectTaskCategoryViewController
+
+-(void)refreshNotificationText
+{
+    // Actualizar el texto sobre las tareas sin asignar
+    int unassignedTasks = [self.taskCategoryArrays countOfListWithCategory:INBOX];
+    if ( unassignedTasks == 0) {
+        self.notificationText.text = @"You have assigned all your tasks";
+    } else {
+        //self.notificationText.text = [[NSString alloc]initWithFormat:@"You have %d unassigned tasks", unassignedTasks;
+        self.notificationText.text = @"You have unassigned tasks";
+    }
+}
 
 - (void)awakeFromNib
 {
@@ -27,12 +41,15 @@
     
     //using data core HERE
     [self.taskCategoryArrays loadDataFromCoreData];
+    
+    [self refreshNotificationText];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self refreshNotificationText];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,6 +63,7 @@
     if([[segue identifier] isEqualToString:@"CancelInput"]){
         [self dismissViewControllerAnimated:YES completion:NULL];
     }
+    [self refreshNotificationText];
 }
 
 - (void)showExtraOptions:(id)sender
@@ -55,7 +73,7 @@
 }
 
 - (void)done:(UIStoryboardSegue *)segue
-{
+{    
     if([[segue identifier] isEqualToString:@"ReturnInput"]){
         AddTaskTableViewController* addController = [segue sourceViewController];
         if(addController.addedTask){
@@ -66,28 +84,8 @@
     }else if([[segue identifier] isEqualToString:@"EditFinished"]){
         EditTaskTableViewController* editView = [segue sourceViewController];
         NSString* originalCategory = editView.editedTask.category;
-        NSString* finalCategory = nil;
-        NSInteger index = [editView.taskCategorySelector selectedRowInComponent:0];
-        switch (index) {
-            case 0:
-                finalCategory = INBOX;
-                break;
-            case 1:
-                finalCategory = NEXT;
-                break;
-            case 2:
-                finalCategory = WAITTING;
-                break;
-            case 3:
-                finalCategory = SOME_DAY;
-                break;
-            case 4:
-                finalCategory = PROJECT;
-                break;
-            default:
-                finalCategory = INBOX;
-                break;
-        }
+        NSString* finalCategory = editView.selectedCategory;
+        
         float priority = editView.taskPriority.value * MAX_PRIORITY;
         Task* newTask = [[Task alloc] initWithName:editView.taskName.text date:editView.editedTask.date note:editView.taskNote.text priority:priority category:finalCategory];
         
@@ -97,6 +95,7 @@
         //now adding a new one
         [self.taskCategoryArrays addTaskWithTask:newTask withCategory:finalCategory];
     }
+    [self refreshNotificationText];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -108,9 +107,9 @@
             masterViewController.activitiesArray = self.taskCategoryArrays.inboxTaskList;
         } else if([identifier isEqualToString:NEXT]){
             masterViewController.activitiesArray = self.taskCategoryArrays.nextTaskList;
-        }else if([identifier isEqualToString:WAITTING]){
+        }else if([identifier isEqualToString:WAITING]){
             masterViewController.activitiesArray = self.taskCategoryArrays.waittingTaskList;
-        }else if([identifier isEqualToString:SOME_DAY]){
+        }else if([identifier isEqualToString:SOMEDAY]){
             masterViewController.activitiesArray = self.taskCategoryArrays.someDayTaskList;
         }else if([identifier isEqualToString:PROJECT]){
             masterViewController.activitiesArray = self.taskCategoryArrays.projectTaskList;

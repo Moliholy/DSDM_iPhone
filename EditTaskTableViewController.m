@@ -13,25 +13,56 @@
 
 @interface EditTaskTableViewController ()
 - (void) configureElements;
+- (NSInteger)obtainPath:(NSString*)category;
 @end
 
 @implementation EditTaskTableViewController
 
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+- (NSInteger)obtainPath:(NSString *)category
 {
-    switch (row) {
-        case 0:
-            return INBOX;
-        case 1:
-            return NEXT;
-        case 2:
-            return WAITTING;
-        case 3:
-            return SOME_DAY;
-        case 4:
-            return PROJECT;
+    if([category isEqualToString:NEXT])
+        return 0;
+    else if([category isEqualToString:WAITING])
+        return 1;
+    else if([category isEqualToString:PROJECT])
+        return 2;
+    else if([category isEqualToString:SOMEDAY])
+        return 3;
+    return 0;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 1){
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        NSString* futureCategory = nil;
+        switch (indexPath.row) {
+            case 0:
+                futureCategory = NEXT;
+                break;
+            case 1:
+                futureCategory = WAITING;
+                break;
+            case 2:
+                futureCategory = PROJECT;
+                break;
+            case 3:
+                futureCategory = SOMEDAY;
+                break;
+        }
+    
+        NSInteger oldRow = [self obtainPath:self.selectedCategory];
+        NSIndexPath* oldIndexPath = [NSIndexPath indexPathForRow:oldRow inSection:1];
+        UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:oldIndexPath];
+        oldCell.accessoryType = UITableViewCellAccessoryNone;
+    
+        UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
+        if (newCell.accessoryType == UITableViewCellAccessoryNone) {
+            newCell.accessoryType = UITableViewCellAccessoryCheckmark;
+            self.selectedCategory = futureCategory;
+        }
     }
-    return @"";
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -50,16 +81,24 @@
     return 5; //the 5 categories
 }
 
+-(void)viewDidLayoutSubviews
+{
+    //configuring the initial checkmark
+    NSString* category = self.editedTask.category;
+    if([category isEqual:NEXT] || [category isEqual:PROJECT] || [category isEqual:SOMEDAY] || [category isEqual:WAITING]){
+        NSInteger current = [self obtainPath:category];
+        NSIndexPath* currentIndexPath = [NSIndexPath indexPathForRow:current inSection:1];
+        UITableViewCell *currentCell = [self.table cellForRowAtIndexPath:currentIndexPath];
+        currentCell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+}
 
 - (void)configureElements
 {
     self.taskName.text = self.editedTask.name;
     self.taskNote.text = self.editedTask.note;
     self.taskPriority.value = self.editedTask.priority / MAX_PRIORITY;
-    
-    //let's edit the string picker...
-    self.taskCategorySelector.delegate = self;
-    self.taskCategorySelector.dataSource = self;
+    self.selectedCategory = self.editedTask.category;
 }
 
 - (void)viewDidLoad

@@ -24,8 +24,8 @@
 -(void)remove:(UIStoryboardSegue *)segue
 {
     if([[segue identifier] isEqualToString:@"RemoveInput"]){
-        DetailViewController* detaillViewController = [segue sourceViewController];
-        Task* taskToRemove = detaillViewController.task;
+        DetailViewController* detailViewController = [segue sourceViewController];
+        Task* taskToRemove = detailViewController.task;
         SelectTaskCategoryViewController* selectView = [self.navigationController.viewControllers objectAtIndex:0];
         
         if (![taskToRemove.category isEqualToString:TRASH]) {
@@ -34,10 +34,8 @@
         } else
             //as always, core data first
             [selectView.taskCategoryArrays removeTask:taskToRemove atCategory:taskToRemove.category];
-        
-        //later the rest
-        [self.tableView reloadData];
     }
+    [self.tableView reloadData];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -45,13 +43,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.title = self.categoryName;
+    self.navigationItem.title = [self.categoryName capitalizedString];
 }
 
 - (void)organizeList:(id)sender
 {
     UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Sort by..." message:@"" delegate:self cancelButtonTitle:@"Cancel"
-        otherButtonTitles:@"Name",@"Date", @"Already done", @"Priority", nil];
+        otherButtonTitles:@"Name",@"Date", @"Completed", @"Priority", nil];
     [alert show];
 }
 

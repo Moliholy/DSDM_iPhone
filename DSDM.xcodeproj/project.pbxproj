@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22A078CC173C0A1A000F87BA /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A078CB173C0A1A000F87BA /* app_icon.png */; };
+		22A078CE173C0A1C000F87BA /* app_icon_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A078CD173C0A1C000F87BA /* app_icon_retina.png */; };
 		350F46B01736A8AF00B4CF9D /* EditTaskTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 350F46AF1736A8AF00B4CF9D /* EditTaskTableViewController.m */; };
 		35440C2A1739A87100C72A02 /* TaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35440C291739A87100C72A02 /* TaskModel.m */; };
 		35440C2D1739C9BE00C72A02 /* Task.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35440C2B1739C9BE00C72A02 /* Task.xcdatamodeld */; };
@@ -31,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22A078CB173C0A1A000F87BA /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon.png; sourceTree = "<group>"; };
+		22A078CD173C0A1C000F87BA /* app_icon_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon_retina.png; sourceTree = "<group>"; };
 		350F46AE1736A8AE00B4CF9D /* EditTaskTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditTaskTableViewController.h; path = ../EditTaskTableViewController.h; sourceTree = "<group>"; };
 		350F46AF1736A8AF00B4CF9D /* EditTaskTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditTaskTableViewController.m; path = ../EditTaskTableViewController.m; sourceTree = "<group>"; };
 		35440C281739A87100C72A02 /* TaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskModel.h; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 		35B58B1C172A5E6B0051FFD6 = {
 			isa = PBXGroup;
 			children = (
+				22A078CD173C0A1C000F87BA /* app_icon_retina.png */,
+				22A078CB173C0A1A000F87BA /* app_icon.png */,
 				35B58B30172A5E6B0051FFD6 /* DSDM */,
 				35B58B27172A5E6B0051FFD6 /* Frameworks */,
 				35B58B26172A5E6B0051FFD6 /* Products */,
@@ -210,6 +216,8 @@
 				35B58B3F172A5E6C0051FFD6 /* Default@2x.png in Resources */,
 				35B58B41172A5E6C0051FFD6 /* Default-568h@2x.png in Resources */,
 				35B58B44172A5E6C0051FFD6 /* MainStoryboard.storyboard in Resources */,
+				22A078CC173C0A1A000F87BA /* app_icon.png in Resources */,
+				22A078CE173C0A1C000F87BA /* app_icon_retina.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +327,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DSDM/DSDM-Prefix.pch";
 				INFOPLIST_FILE = "DSDM/DSDM-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -330,6 +339,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DSDM/DSDM-Prefix.pch";
 				INFOPLIST_FILE = "DSDM/DSDM-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

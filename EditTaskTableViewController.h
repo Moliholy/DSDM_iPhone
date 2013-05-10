@@ -9,14 +9,18 @@
 #import <UIKit/UIKit.h>
 @class Task;
 
-@interface EditTaskTableViewController : UITableViewController<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface EditTaskTableViewController : UITableViewController<UITextFieldDelegate>
 
 
 @property (strong, nonatomic) Task* editedTask;
 @property (weak, nonatomic) IBOutlet UITextField *taskName;
 @property (weak, nonatomic) IBOutlet UITextField *taskNote;
 @property (weak, nonatomic) IBOutlet UISlider *taskPriority;
-@property (weak, nonatomic) IBOutlet UIPickerView *taskCategorySelector;
+@property (strong, nonatomic) IBOutlet UITableView *table;
+@property (strong, nonatomic) NSString* selectedCategory;
+
+@property (strong, nonatomic) NSString *categorySelected;
+
 
 
 @end
