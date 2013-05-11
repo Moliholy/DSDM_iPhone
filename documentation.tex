@@ -98,27 +98,27 @@ Aunque en un principio pueda parecer que insertar notificaciones para las tareas
 
 \section{Implementaci\'on}
 
-Para la implementación de la aplicación se ha seguido el patrón Modelo Vista Controlador (MVC) de forma que:
+Para la implementaci\'on de la aplicaci\'on se ha seguido el patr\'on Modelo Vista Controlador (MVC) de forma que:
 
-	\item[Modelo] \hfill \\ Está constituido por todos los objetos que representan la información. Esto incluye tanto las clases utilizadas por la aplicación durante su ejecución como las creadas únicamente para la realización de la persistencia de datos. Asimismo, toda la funcionalidad de gestión de los datos se lleva a cabo en una clase a parte para poder manejar la información de forma más sencilla, tal y como recomienda Apple. Esta clase engloba toda la funcionalidad requerida para la inserción, borrado, modificación y consulta de datos.
-	\item[Vista] \hfill \\ Los objetos de vista son aquellos que se muestran al usuario como presentación de los datos, es decir, las distintas interfaces con las que el usuario puede interactuar. Los objetos de vista no poseen en sí capacidad de procesar información, sino que son los objetos controladores los encargados de de esta tarea.
-	\item[Controlador] \hfill \\ Los objetos de controlador son aquellos que procesan la información que el usuario aporta, la procesan y, mediante consultas al modelo, muestran al usuario una respuesta. Los controladores se encargan de manejar la lógica de la aplicación, y serían los objetos que controlan cada una de las vistas.
+	\item[Modelo] \hfill \\ Est\'a constituido por todos los objetos que representan la informaci\'on. Esto incluye tanto las clases utilizadas por la aplicaci\'on durante su ejecuci\'on como las creadas \'unicamente para la realizaci\'on de la persistencia de datos. Asimismo, toda la funcionalidad de gesti\'on de los datos se lleva a cabo en una clase a parte para poder manejar la informaci\'on de forma m\'as sencilla, tal y como recomienda Apple. Esta clase engloba toda la funcionalidad requerida para la inserci\'on, borrado, modificaci\'on y consulta de datos.
+	\item[Vista] \hfill \\ Los objetos de vista son aquellos que se muestran al usuario como presentaci\'on de los datos, es decir, las distintas interfaces con las que el usuario puede interactuar. Los objetos de vista no poseen en s\'i capacidad de procesar informaci\'on, sino que son los objetos controladores los encargados de de esta tarea.
+	\item[Controlador] \hfill \\ Los objetos de controlador son aquellos que procesan la informaci\'on que el usuario aporta, la procesan y, mediante consultas al modelo, muestran al usuario una respuesta. Los controladores se encargan de manejar la l\'ogica de la aplicaci\'on, y ser\'ian los objetos que controlan cada una de las vistas.
 
 \subsection{Tareas}
 
-Las tareas pertenecen al grupo de clases del Modelo, y almacenan todos los datos concernientes a esa entidad. Los objetos tarea se utilizan como fuentes de información para poder mostrar los datos de una vista, de forma que cada vista en la aplicación necesita de al menos un objeto tarea del que poder extraer la información.
+Las tareas pertenecen al grupo de clases del Modelo, y almacenan todos los datos concernientes a esa entidad. Los objetos tarea se utilizan como fuentes de informaci\'on para poder mostrar los datos de una vista, de forma que cada vista en la aplicaci\'on necesita de al menos un objeto tarea del que poder extraer la informaci\'on.
 
 \subsection{Categor\'ias}
 
-Las categorías también forman parte del Modelo, dado que se usan para clasificar y organizar las tareas según ese criterio.
+Las categor\'ias tambi\'en forman parte del Modelo, dado que se usan para clasificar y organizar las tareas seg\'un ese criterio.
 
 \subsection{Interfaz}
 
-Todos los objetos que pertenecen a la interfaz de usuario a su vez serán clases de Vista. En la interfaz se muestra de forma clara al usuario la información mediante objetos gráficos con los que pueda interactuar mandando información a los controladores de los eventos producidos. Según el tipo de dato a mostrar o editar se utilizan varios tipos de objetos: UITextView para editar campos de texto y UILabel para mostrarlos; UITableView para mostrar la información de forma ordenada por filas y poder seleccionar las celdas, Sliders para la introducción de campos numéricos, UIButtons para la selección de las acciones, etc. La principal forma de organización de la información ha sido mediante tablas, de forma que la información se presenta en cada una de las celdas de las que dispone la tabla. A su vez estas tablas podían ser de contenido estático o dinámico, dependiendo del caso.
+Todos los objetos que pertenecen a la interfaz de usuario a su vez ser\'an clases de Vista. En la interfaz se muestra de forma clara al usuario la informaci\'on mediante objetos gr\'aficos con los que pueda interactuar mandando informaci\'on a los controladores de los eventos producidos. Seg\'un el tipo de dato a mostrar o editar se utilizan varios tipos de objetos: UITextView para editar campos de texto y UILabel para mostrarlos; UITableView para mostrar la informaci\'on de forma ordenada por filas y poder seleccionar las celdas, Sliders para la introducci\'on de campos num\'ericos, UIButtons para la selecci\'on de las acciones, etc. La principal forma de organizaci\'on de la informaci\'on ha sido mediante tablas, de forma que la informaci\'on se presenta en cada una de las celdas de las que dispone la tabla. A su vez estas tablas pod\'ian ser de contenido est\'atico o din\'amico, dependiendo del caso.
 
 \subsection{Controladores}
 
-Según el tipo de vista se han implementado dos tipos de clases de controlador: clases tipo UITableViewController y clases UIViewController. Cada una de ellas se encarga de manejar, atendiendo al tipo de eventos que se pueden producir, las acciones realizadas por el usuario. A su vez, para cambiar de una vista a otra (y por tanto de un controlador a otro) se ha utilizado la funcionalidad que proveen los storyboards en iOS 5+, más concretamente mediante los llamados `segues'.
+Seg\'un el tipo de vista se han implementado dos tipos de clases de controlador: clases tipo UITableViewController y clases UIViewController. Cada una de ellas se encarga de manejar, atendiendo al tipo de eventos que se pueden producir, las acciones realizadas por el usuario. A su vez, para cambiar de una vista a otra (y por tanto de un controlador a otro) se ha utilizado la funcionalidad que proveen los storyboards en iOS 5+, m\'as concretamente mediante los llamados `segues'.
 
 \subsection{Notificaciones}
 
