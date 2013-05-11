@@ -13,6 +13,7 @@
 % FRONT PAGE
 
 \maketitle
+\vfill
 \tableofcontents
 
 \newpage
@@ -32,7 +33,7 @@ El funcionamiento base de GTD persigue que el usuario se olvide de las tareas ha
 
 Para conseguir que el usuario no tengan en mente las tareas que tiene que hacer y se pase el d\'ia pensando ``Que no se me olvide esto, cuando llegue a casa tengo que hacerlo" GTD propone que la creaci\'on de tareas sea extremadamente sencilla. La idea consiste en crear las tareas justo en el momento en que las piensas, pero solo especificando un t\'itulo para esta; no ser\'a necesario especificar categor\'ia, fecha ni ning\'un otro par\'ametro, el objetivo en ese momento es que el usuario cree la tarea y se olvide de ella para que no siga dando vueltas en su cabeza, ya llegar\'a el momento de atenderla. Estas tareas reci\'en creadas van a la categor\'ia llamada `Inbox'.
 
-A lo largo del d\'ia el usuario habr\'a creado varias tareas que ahora est\'an en la categor\'ia `Inbox'. \¿Qu\'e hace con estas tareas? Pues buscar un momento al d\'ia en el que revisar las tareas que se encuentran en `Inbox' y asignarle una nueva categor\'ia aparte de proporcionar la informaci\'on adicional que sea necesaria.
+A lo largo del d\'ia el usuario habr\'a creado varias tareas que ahora est\'an en la categor\'ia `Inbox'. \textquestiondown Qu\'e hace con estas tareas? Pues buscar un momento al d\'ia en el que revisar las tareas que se encuentran en `Inbox' y asignarle una nueva categor\'ia aparte de proporcionar la informaci\'on adicional que sea necesaria.
 
 En este punto hay varias versiones de GTD que usan categor\'ias distintas pero nosotros nos quedaremos en la m\'as b\'asica para mantener la aplicaci\'on lo m\'as sencilla de usar, por lo que tendremos las siguientes categor\'ias para asignar a nuestras tareas del `Inbox' seg\'un corresponda a cada una:
 
@@ -98,11 +99,12 @@ Aunque en un principio pueda parecer que insertar notificaciones para las tareas
 
 \section{Implementaci\'on}
 
-Para la implementaci\'on de la aplicaci\'on se ha seguido el patr\'on Modelo Vista Controlador (MVC) de forma que:
-
+Para la implementaci\'on de la aplicaci\'on se ha seguido el patr\'on Modelo-Vista-Controlador (MVC) de forma que:
+\begin{description}
 	\item[Modelo] \hfill \\ Est\'a constituido por todos los objetos que representan la informaci\'on. Esto incluye tanto las clases utilizadas por la aplicaci\'on durante su ejecuci\'on como las creadas \'unicamente para la realizaci\'on de la persistencia de datos. Asimismo, toda la funcionalidad de gesti\'on de los datos se lleva a cabo en una clase a parte para poder manejar la informaci\'on de forma m\'as sencilla, tal y como recomienda Apple. Esta clase engloba toda la funcionalidad requerida para la inserci\'on, borrado, modificaci\'on y consulta de datos.
-	\item[Vista] \hfill \\ Los objetos de vista son aquellos que se muestran al usuario como presentaci\'on de los datos, es decir, las distintas interfaces con las que el usuario puede interactuar. Los objetos de vista no poseen en s\'i capacidad de procesar informaci\'on, sino que son los objetos controladores los encargados de de esta tarea.
-	\item[Controlador] \hfill \\ Los objetos de controlador son aquellos que procesan la informaci\'on que el usuario aporta, la procesan y, mediante consultas al modelo, muestran al usuario una respuesta. Los controladores se encargan de manejar la l\'ogica de la aplicaci\'on, y ser\'ian los objetos que controlan cada una de las vistas.
+	\item[Vista] \hfill \\ Los objetos de vista son aquellos que se muestran al usuario como presentaci\'on de los datos, es decir, las distintas interfaces con las que el usuario puede interactuar. Los objetos de vista no poseen en s\'i capacidad de procesar informaci\'on, sino que son los objetos controladores los encargados de esta tarea.
+	\item[Controlador] \hfill \\ Los objetos de controlador son aquellos que procesan la informaci\'on que el usuario aporta y mediante consultas al modelo, muestran al usuario una respuesta. Los controladores se encargan de manejar la l\'ogica de la aplicaci\'on, y ser\'ian los objetos que controlan cada una de las vistas.
+\end{description}
 
 \subsection{Tareas}
 
