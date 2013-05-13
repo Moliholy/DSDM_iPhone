@@ -14,7 +14,7 @@
 
 @property (nonatomic, copy) NSMutableArray* inboxTaskList;
 @property (nonatomic, copy) NSMutableArray* nextTaskList;
-@property (nonatomic, copy) NSMutableArray* waittingTaskList;
+@property (nonatomic, copy) NSMutableArray* waitingTaskList;
 @property (nonatomic, copy) NSMutableArray* someDayTaskList;
 @property (nonatomic, copy) NSMutableArray* projectTaskList;
 @property (nonatomic, copy) NSMutableArray* trashTaskList;

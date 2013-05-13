@@ -31,7 +31,7 @@ O com\'unmente conocida como GTD es una metodolog\'ia de organizaci\'on de tarea
 
 El funcionamiento base de GTD persigue que el usuario se olvide de las tareas hasta el momento en que tiene que hacerlas, de forma que pueda concentrarse en aquellas tareas que est\'an m\'as cerca en el tiempo. Para ello se hace uso de varias categor\'ias que clasificar\'an las tareas seg\'un unos criterios de cercan\'ia en el tiempo y que ser\'an revisadas una vez al d\'ia.
 
-Para conseguir que el usuario no tengan en mente las tareas que tiene que hacer y se pase el d\'ia pensando ``Que no se me olvide esto, cuando llegue a casa tengo que hacerlo" GTD propone que la creaci\'on de tareas sea extremadamente sencilla. La idea consiste en crear las tareas justo en el momento en que las piensas, pero solo especificando un t\'itulo para esta; no ser\'a necesario especificar categor\'ia, fecha ni ning\'un otro par\'ametro, el objetivo en ese momento es que el usuario cree la tarea y se olvide de ella para que no siga dando vueltas en su cabeza, ya llegar\'a el momento de atenderla. Estas tareas reci\'en creadas van a la categor\'ia llamada `Inbox'.
+Para conseguir que el usuario no tenga en mente las tareas que tiene que hacer y se pase el d\'ia pensando ``Que no se me olvide esto, cuando llegue a casa tengo que hacerlo" GTD propone que la creaci\'on de tareas sea extremadamente sencilla. La idea consiste en crear las tareas justo en el momento en que las piensas, pero solo especificando un t\'itulo para \'esta; no ser\'a necesario especificar categor\'ia, fecha ni ning\'un otro par\'ametro, el objetivo en ese momento es que el usuario cree la tarea y se olvide de ella para que no siga dando vueltas en su cabeza, ya llegar\'a el momento de atenderla. Estas tareas reci\'en creadas van a la categor\'ia llamada `Inbox'.
 
 A lo largo del d\'ia el usuario habr\'a creado varias tareas que ahora est\'an en la categor\'ia `Inbox'. \textquestiondown Qu\'e hace con estas tareas? Pues buscar un momento al d\'ia en el que revisar las tareas que se encuentran en `Inbox' y asignarle una nueva categor\'ia aparte de proporcionar la informaci\'on adicional que sea necesaria.
 
@@ -77,7 +77,7 @@ Ya hemos comentado antes una serie de categor\'ias relacionadas con GTD, pero he
 	\item Trash. 
 \end{itemize}
 
-Las categor\'ias `Completed' y `Trash' son asignadas a las tareas completadas y eliminadas respectivamente, de forma que podamos listar estas tareas en nuestra aplicaci\'on. Aunque estas categor\'ias no entren dentro de GTD eran necesar\'ias por los requisitos impuestos para el proyecto.
+Las categor\'ias `Completed' y `Trash' son asignadas a las tareas completadas y eliminadas respectivamente, de forma que podamos listar estas tareas en nuestra aplicaci\'on. Aunque estas categor\'ias no entren dentro de GTD eran necesarias por los requisitos impuestos para el proyecto.
 
 \subsection{Interfaz}
 
@@ -89,7 +89,7 @@ Por tanto la aplicaci\'on debe contar con las siguientes vistas:
 	\item[Home] \hfill \\ Acceso directo al `Inbox' y a la creaci\'on de tareas, as\'i como a las categor\'ias.
 	\item[Creaci\'on de tarea] \hfill \\ Permite crear una tarea nueva.
 	\item[Categor\'ia] \hfill \\ Listado de las tareas pertenencientes a una categor\'ia. Debe permitir ordenar la lista seg\'un varios criterios.
-	\item[Tarea] \hfill \\ Visualzaci\'on de la informaci\'on de una tarea concreta. Se debe poder editar la informaci\'on de la tarea para realizar, por ejemplo, el cambio de categor\'ia. Tambi\'en se debe poder marcar la tarea como completada o borrarla si ya no es necesaria.
+	\item[Tarea] \hfill \\ Visualizaci\'on de la informaci\'on de una tarea concreta. Se debe poder editar la informaci\'on de la tarea para realizar, por ejemplo, el cambio de categor\'ia. Tambi\'en se debe poder marcar la tarea como completada o borrarla si ya no es necesaria.
 	\item[Edici\'on]	\hfill \\ Edici\'on de la informaci\'on de la tarea. Se debe poder escoger la categor\'ia a la que asignarla.
 \end{description}
 
@@ -108,19 +108,134 @@ Para la implementaci\'on de la aplicaci\'on se ha seguido el patr\'on Modelo-Vis
 
 \subsection{Tareas}
 
-Las tareas pertenecen al grupo de clases del Modelo, y almacenan todos los datos concernientes a esa entidad. Los objetos tarea se utilizan como fuentes de informaci\'on para poder mostrar los datos de una vista, de forma que cada vista en la aplicaci\'on necesita de al menos un objeto tarea del que poder extraer la informaci\'on.
+Las tareas pertenecen al grupo de clases del Modelo, y almacenan todos los datos concernientes a esa entidad. Los objetos tarea se utilizan como fuentes de informaci\'on para poder mostrar los datos de una vista, de forma que cada vista en la aplicaci\'on necesita de al menos un objeto tarea del que poder extraer la informaci\'on. A modo de ejemplo se presenta la clase Task, y se comentar\'an las caracter\'isticas m\'as relevantes de la misma:
+
+\begin{verbatimtab}
+@interface Task : NSObject
+
+@property (copy, nonatomic) NSString* name;
+@property (strong, nonatomic) NSDate* date;
+@property (copy, nonatomic) NSString* note;
+@property (copy, nonatomic) NSString* category;
+@property (nonatomic) float priority;
+
+- (id)initWithName:(NSString*)name date:(NSDate*)date 
+note:(NSString*)note priority:(float)priority category:(NSString*)category;
+
+@end
+\end{verbatimtab}
+
+Los atributos se presentan como @property propios de Objective-C, de forma que desde la misma cabecera se establecen las caracter\'icticas de los m\'etodos getter y setter. En el caso de los objetos tipo NSString lo m\'as recomendable es que su setter se establezca por copia (de ah\'i el par\'ametro `copy') dado que los objetos Task van a ir pasando de una vista a otra, pudiendo por ello generarse errores dif\'iciles de depurar. Por otro lado, dado que las fechas en la aplicaci\'on no se van a modificar nunca es suficiente con usar el par\'ametro `strong'. Respecto al par\'ametro `nonatomic', dado que la aplicaci\'on no hace uso de varios hilos es conveniente usarlo, ya que no hay problemas de acceso debidos a la concurrencia. Sin embargo, en ning\'un caso se deber\'ia haber usado el par\'ametro `weak' porque los objetos creados podr\'ian borrarse al salir del constructor. Tambi\'en es importante recalcar el m\'eotodo de inicializaci\'on de la clase: de esta manera te aseguras que la tarea va a tener iniciado con contenido v\'alido la tarea con todos sus componentes. Si se hubiese reimplementado el m\'etodo init de la clase NSObject para poner par\'ametros por defecto podr\'ia darse el caso de que hubiese tareas que no tubiesen contenido, y eso es algo que hay que evitar a toda costa si la aplicaci\'on no contempla dicha posibilidad.
+
+Otra clase muy interesante para entrar en detalle es TaskDataController. En ella se realizan todas las operaciones de alto nivel concernientes a la manipulaci\'on de los objetos Task. Veamos su fichero de cabecera:
+
+\begin{verbatimtab}
+@interface TaskDataController : NSObject
+
+@property (nonatomic, copy) NSMutableArray* inboxTaskList;
+@property (nonatomic, copy) NSMutableArray* nextTaskList;
+@property (nonatomic, copy) NSMutableArray* waitingTaskList;
+@property (nonatomic, copy) NSMutableArray* someDayTaskList;
+@property (nonatomic, copy) NSMutableArray* projectTaskList;
+@property (nonatomic, copy) NSMutableArray* trashTaskList;
+@property (nonatomic, copy) NSMutableArray* doneTaskList;
+
+
+- (id)init;
+- (BOOL)loadDataFromCoreData;
+- (id)initWithListInbox:(NSMutableArray*)inbox next:(NSMutableArray*)next waitting:(NSMutableArray*)waitting someDay:(NSMutableArray*)someDay project:(NSMutableArray*)project;
+- (NSMutableArray*) listByCategory:(NSString*)category;
+- (void)addTaskWithTaskModel:(TaskModel*)taskModel;
+- (void)addTaskWithTask:(Task*)task;
+- (void)addTaskWithTask:(Task*)task withCategory:(NSString*)category;
+- (Task*)objectInListWithCategory:(NSString*)category atIndex:(NSInteger)index;
+- (NSInteger)countOfListWithCategory:(NSString*)category;
+- (BOOL)changeTaskCategory:(Task*)task 
+fromCategory:(NSString*)sourceCategory toCategory:(NSString*)destinyCategory;
+- (void) removeTask:(Task*)task atCategory:(NSString*)category;
+- (NSMutableArray*)completedArray;
+
+@end
+\end{verbatimtab}
+
+Como se puede observar los atributos incluyen todos las listas de tareas agrupadas seg\'un la categor\'ia a la que pertenecen, de forma que se puede tener f\'acil acceso. Por otro lado, dichas listas est\'an representadas mediante la clase NSMutableArray. Pero, ¿por qu\'e mutable? Dado que la aplicaci\'on provee de las operaciones de inserci\'on y borrado de tareas es obligatorio permitir que la lista pueda agrandarse o achicarse seg\'un convenga. El principal problema que esto tiene es que disminuye la eficiencia de la estructura de datos, pero dado que el volumen de datos que manejar\'a un solo usuario no es demasiado grande no deber\'ia de suponer una gran p\'erdida.
+Por otro lado se pueden observar que la clase incluye un repertorio de m\'etodos encargados de toda la administraci\'on de los datos. M\'as concretamente hay m\'etodos de tipo inicio, obtenci\'on de atributos, inserci\'on, borrado, cambio de elementos entre arrays, consulta de tareas y del n\'umero de elementos en cada uno de los vectores.
+Es interesante recalcar que esta clase es la encargada de realizar la persistencia de datos, de forma que las modificaciones realizadas por el usuario se guarden en disco y se puedan recuperar en las distintas sesiones. La primera cuesti\'on que hay que abordar es sin duda: ¿es \'este el sitio adecuado para incorporar dicha funcionalidad? Dado que las clases de Modelo son las encargadas del almacenamiento de datos este ser\'ia sin duda un lugar perfectamente v\'alido para incorporar la persistencia de datos. El hacerlo de esta manera garantiza que cuando se realicen cambios en los datos se realizar\'an tambi\'en en disco. Sin embargo, hay que tener muy presente que el obligar a realizar un acceso a disco cada vez que haya una modificaci\'on puede producir errores de E/S y adem\'as ralentiza la ejecuci\'on. A\'un as\'i, dado que este tipo de operaciones se realizan de forma controlada y no concurrente no hay ning\'un problema en su utilizaci\'on mediante este m\'etodo.
+Como ejemplo representativo de la utilizaci\'on de persistencia de datos se presenta a continuaci\'on un m\'etodo de carga de datos que se ejecuta cada vez que la aplicaci\'on se carga por primera vez:
+
+\begin{verbatimtab}
+- (BOOL)loadDataFromCoreData
+{
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription* taskModelDescription = 
+    [NSEntityDescription entityForName:@"TaskModel" inManagedObjectContext:context];
+
+    [request setEntity:taskModelDescription];
+    if(taskModelDescription){
+        NSError *error;
+        NSArray *taskModelArray = [context executeFetchRequest:request error:&error];
+        if(!error){
+            for (TaskModel* taskModel in taskModelArray)
+                [self addTaskWithTaskModel:taskModel];
+            return YES;
+        }
+    }
+    return NO;
+}
+\end{verbatimtab}
+
+Como se ve es necesario llamar al AppDelegate de la aplicaci\'on para utilizar los objetos de contexto que provee y de esta forma poder acceder a los ficheros tipo sqlite que almacenan la informaci\'on. Dicha informaci\'on viene a su vez modelada en la base de datos mediante lo que Apple denomina `Entity'. En este caso el volcado de informaci\'on desde la base de datos a nuestra aplicaci\'on se realiza mediante los objetos de la clase TaskModel. A su vez estos objetos se procesan para generar los objetos Task, que son los que se utilizan posteriormente.
+
+
 
 \subsection{Categor\'ias}
 
-Las categor\'ias tambi\'en forman parte del Modelo, dado que se usan para clasificar y organizar las tareas seg\'un ese criterio.
+Las categor\'ias tambi\'en forman parte del Modelo, dado que se usan para clasificar y organizar las tareas seg\'un ese criterio. Los tipos de categor\'ias se incluyen en los atributos de la clase Category. Veamos su fichero de implementaci\'on:
+
+\begin{verbatimtab}
+@implementation Category
+
+NSString* const INBOX = @"INBOX";
+NSString* const NEXT = @"NEXT";
+NSString* const WAITING = @"WAITING";
+NSString* const SOMEDAY = @"SOMEDAY";
+NSString* const PROJECT = @"PROJECT";
+NSString* const TRASH = @"TRASH";
+NSString* const DONE = @"DONE";
+
+@end
+\end{verbatimtab}
+
+Como se puede observar esta clase simplemente establece mediante cadenas de caracteres constantes los valores posibles de las categor\'ias, ofreci\'endoselos al resto de clases. De esta manera se consigue mayor solidez y se depuran errores.
 
 \subsection{Interfaz}
 
 Todos los objetos que pertenecen a la interfaz de usuario a su vez ser\'an clases de Vista. En la interfaz se muestra de forma clara al usuario la informaci\'on mediante objetos gr\'aficos con los que pueda interactuar mandando informaci\'on a los controladores de los eventos producidos. Seg\'un el tipo de dato a mostrar o editar se utilizan varios tipos de objetos: UITextView para editar campos de texto y UILabel para mostrarlos; UITableView para mostrar la informaci\'on de forma ordenada por filas y poder seleccionar las celdas, Sliders para la introducci\'on de campos num\'ericos, UIButtons para la selecci\'on de las acciones, etc. La principal forma de organizaci\'on de la informaci\'on ha sido mediante tablas, de forma que la informaci\'on se presenta en cada una de las celdas de las que dispone la tabla. A su vez estas tablas pod\'ian ser de contenido est\'atico o din\'amico, dependiendo del caso.
 
+
 \subsection{Controladores}
 
 Seg\'un el tipo de vista se han implementado dos tipos de clases de controlador: clases tipo UITableViewController y clases UIViewController. Cada una de ellas se encarga de manejar, atendiendo al tipo de eventos que se pueden producir, las acciones realizadas por el usuario. A su vez, para cambiar de una vista a otra (y por tanto de un controlador a otro) se ha utilizado la funcionalidad que proveen los storyboards en iOS 5+, m\'as concretamente mediante los llamados `segues'.
+A modo de ejemplo veamos el fichero de cabecera del controlador encargado de editar las tareas:
+
+\begin{verbatimtab}
+@interface EditTaskTableViewController : UITableViewController<UITextFieldDelegate>
+
+@property (strong, nonatomic) Task *editedTask;
+@property (weak, nonatomic) IBOutlet UITextField *taskName;
+@property (weak, nonatomic) IBOutlet UITextField *taskNote;
+@property (weak, nonatomic) IBOutlet UISlider *taskPriority;
+@property (strong, nonatomic) IBOutlet UITableView *table;
+@property (strong, nonatomic) NSString *selectedCategory;
+@property (strong, nonatomic) NSString *categorySelected;
+
+@end
+\end{verbatimtab}
+
+Como se observa, esta clase Controlador hereda de UITableViewController. Debido a ello implementa toda la funcionalidad requerida para el manejo de interfaces de usuario tipo tabla. En cuanto a sus atributos, existe una clara diferenciaci\'on: por un lado se encuentran los atributos propios de la l\'ogica de la aplicaci\'on (objetos task y categories), y por otro lado objetos obtenidos de la interfaz de usuario (los marcados con IBOutlet). Éstos corresponden a los objetos gr\'aficos con los que el usuario interactua, por lo que f\'acilmente se puede rescatar el valor introducido, procesarlo y actualizar los objetos de l\'ogica en consecuencia. Un detalle interesante: todos los atributos IBOutlet est\'an definidos como weak, es decir, al establecerlo mediante un setter simplemente se igualan los punteros, pero no se aumenta su contador de referencias. Adem\'as, en caso de que sea eliminado el objeto el puntero autom\'aticamente apuntar\'a a nil (a diferencia del par\'ametro retain, que lo mantiene apuntando a una direcci\'on que se convierte en basura). Esto es as\'i porque el responsable de la eliminaci\'on del objeto no es el propio controlador, sino su objeto de vista asociado.
 
 \subsection{Notificaciones}
 

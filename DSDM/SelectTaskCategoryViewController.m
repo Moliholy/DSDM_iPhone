@@ -131,7 +131,7 @@
         } else if([identifier isEqualToString:NEXT]){
             masterViewController.activitiesArray = self.taskCategoryArrays.nextTaskList;
         }else if([identifier isEqualToString:WAITING]){
-            masterViewController.activitiesArray = self.taskCategoryArrays.waittingTaskList;
+            masterViewController.activitiesArray = self.taskCategoryArrays.waitingTaskList;
         }else if([identifier isEqualToString:SOMEDAY]){
             masterViewController.activitiesArray = self.taskCategoryArrays.someDayTaskList;
         }else if([identifier isEqualToString:PROJECT]){

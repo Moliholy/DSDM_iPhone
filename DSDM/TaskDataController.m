@@ -66,7 +66,7 @@
     if (self) {
         self->_inboxTaskList = [[NSMutableArray alloc] init];
         self->_nextTaskList = [[NSMutableArray alloc] init];
-        self->_waittingTaskList = [[NSMutableArray alloc] init];
+        self->_waitingTaskList = [[NSMutableArray alloc] init];
         self->_someDayTaskList = [[NSMutableArray alloc] init];
         self->_projectTaskList = [[NSMutableArray alloc] init];
         self->_trashTaskList = [[NSMutableArray alloc] init];
@@ -81,7 +81,7 @@
     if (self) {
         self->_inboxTaskList = inbox;
         self->_nextTaskList = next;
-        self->_waittingTaskList = waitting;
+        self->_waitingTaskList = waitting;
         self->_someDayTaskList = someDay;
         self->_projectTaskList = project;
         self->_trashTaskList = [[NSMutableArray alloc] init];
@@ -114,7 +114,7 @@
     else if ([category isEqualToString: NEXT])
         return _nextTaskList;
     else if([category isEqualToString: WAITING])
-        return _waittingTaskList;
+        return _waitingTaskList;
     else if([category isEqualToString: SOMEDAY])
         return _someDayTaskList;
     else if([category isEqualToString: PROJECT])
@@ -194,7 +194,7 @@
     [array addObjectsFromArray:self.nextTaskList];
     [array addObjectsFromArray:self.someDayTaskList];
     [array addObjectsFromArray:self.projectTaskList];
-    [array addObjectsFromArray:self.waittingTaskList];
+    [array addObjectsFromArray:self.waitingTaskList];
     [array addObjectsFromArray:self.doneTaskList];
     //[array addObjectsFromArray:self.trashTaskList];
     

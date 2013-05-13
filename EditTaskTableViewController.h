@@ -11,7 +11,6 @@
 
 @interface EditTaskTableViewController : UITableViewController<UITextFieldDelegate>
 
-
 @property (strong, nonatomic) Task* editedTask;
 @property (weak, nonatomic) IBOutlet UITextField *taskName;
 @property (weak, nonatomic) IBOutlet UITextField *taskNote;
@@ -20,7 +19,5 @@
 @property (strong, nonatomic) NSString* selectedCategory;
 
 @property (strong, nonatomic) NSString *categorySelected;
-
-
 
 @end
