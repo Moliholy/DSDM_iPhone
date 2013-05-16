@@ -23,14 +23,17 @@
 
 - (id)init;
 - (BOOL)loadDataFromCoreData;
-- (id)initWithListInbox:(NSMutableArray*)inbox next:(NSMutableArray*)next waitting:(NSMutableArray*)waitting someDay:(NSMutableArray*)someDay project:(NSMutableArray*)project;
+- (id)initWithListInbox:(NSMutableArray*)inbox next:(NSMutableArray*)next
+               waitting:(NSMutableArray*)waitting someDay:(NSMutableArray*)someDay
+                project:(NSMutableArray*)project;
 - (NSMutableArray*) listByCategory:(NSString*)category;
 - (void)addTaskWithTaskModel:(TaskModel*)taskModel;
 - (void)addTaskWithTask:(Task*)task;
 - (void)addTaskWithTask:(Task*)task withCategory:(NSString*)category;
 - (Task*)objectInListWithCategory:(NSString*)category atIndex:(NSInteger)index;
 - (NSInteger)countOfListWithCategory:(NSString*)category;
-- (BOOL)changeTaskCategory:(Task*)task fromCategory:(NSString*)sourceCategory toCategory:(NSString*)destinyCategory;
+- (BOOL)changeTaskCategory:(Task*)task fromCategory:(NSString*)sourceCategory
+                toCategory:(NSString*)destinyCategory;
 - (void) removeTask:(Task*)task atCategory:(NSString*)category;
 - (NSMutableArray*)completedArray;
 

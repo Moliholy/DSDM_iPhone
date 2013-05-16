@@ -16,8 +16,8 @@
 @property (copy, nonatomic) NSString* category;
 @property (nonatomic) float priority;
 
-
-- (id)initWithName:(NSString*)name date:(NSDate*)date note:(NSString*)note priority:(float)priority category:(NSString*)category;
-
+- (id)initWithName:(NSString*)name date:(NSDate*)date
+        note:(NSString*)note priority:(float)priority
+          category:(NSString*)category;
 
 @end
