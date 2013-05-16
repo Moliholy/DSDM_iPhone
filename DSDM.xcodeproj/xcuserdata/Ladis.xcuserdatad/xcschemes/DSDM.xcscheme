@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "35B58B24172A5E6B0051FFD6"
-               BuildableName = "DSDM.app"
+               BuildableName = "Tasks.app"
                BlueprintName = "DSDM"
                ReferencedContainer = "container:DSDM.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "35B58B24172A5E6B0051FFD6"
-            BuildableName = "DSDM.app"
+            BuildableName = "Tasks.app"
             BlueprintName = "DSDM"
             ReferencedContainer = "container:DSDM.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "35B58B24172A5E6B0051FFD6"
-            BuildableName = "DSDM.app"
+            BuildableName = "Tasks.app"
             BlueprintName = "DSDM"
             ReferencedContainer = "container:DSDM.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "35B58B24172A5E6B0051FFD6"
-            BuildableName = "DSDM.app"
+            BuildableName = "Tasks.app"
             BlueprintName = "DSDM"
             ReferencedContainer = "container:DSDM.xcodeproj">
          </BuildableReference>

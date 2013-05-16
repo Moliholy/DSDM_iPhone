@@ -50,7 +50,7 @@
 		35B31DE3172FDC6F00DC2C93 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		35B31DE5172FE18F00DC2C93 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
 		35B31DE6172FE18F00DC2C93 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
-		35B58B25172A5E6B0051FFD6 /* Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		35B58B25172A5E6B0051FFD6 /* GTasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35B58B28172A5E6B0051FFD6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		35B58B2A172A5E6B0051FFD6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		35B58B2C172A5E6B0051FFD6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -100,7 +100,7 @@
 		35B58B26172A5E6B0051FFD6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				35B58B25172A5E6B0051FFD6 /* Tasks.app */,
+				35B58B25172A5E6B0051FFD6 /* GTasks.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,7 +177,7 @@
 			);
 			name = DSDM;
 			productName = DSDM;
-			productReference = 35B58B25172A5E6B0051FFD6 /* Tasks.app */;
+			productReference = 35B58B25172A5E6B0051FFD6 /* GTasks.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -328,7 +328,7 @@
 				GCC_PREFIX_HEADER = "DSDM/DSDM-Prefix.pch";
 				INFOPLIST_FILE = "DSDM/DSDM-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = Tasks;
+				PRODUCT_NAME = GTasks;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -340,7 +340,7 @@
 				GCC_PREFIX_HEADER = "DSDM/DSDM-Prefix.pch";
 				INFOPLIST_FILE = "DSDM/DSDM-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = Tasks;
+				PRODUCT_NAME = GTasks;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
